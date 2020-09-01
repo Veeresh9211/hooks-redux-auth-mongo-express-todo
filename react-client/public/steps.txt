@@ -1,0 +1,15 @@
+1.> npm install --save firebase
+2.> Create config file and add the firebase details
+3.> Firebase offers two cloud-based, client-accessible database solutions that support realtime data syncing:
+    Cloud Firestore
+    Realtime Database
+4.> Here we are using Firestore.
+5.> import firebase from '../../config/config';
+    const dbRef = firebase.firestore();
+6.> FOR CRUD SYNTAX refer code.
+
+
+
+
+a = {ad: "ewqe",ed: "dsf"}
+{...a, id: 3}

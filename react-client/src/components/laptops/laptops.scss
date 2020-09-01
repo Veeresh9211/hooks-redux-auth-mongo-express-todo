@@ -1,0 +1,274 @@
+.laptopSearch {
+    // .col-sm-3{
+    //     font-size: 14px;
+    // }
+    background-color: bisque;
+    padding: 8px 0px;
+    margin: 0px !important;
+    // display: flex;
+    text-align: center;
+    .addLaptops {
+        button{
+            padding: 4px 27px;
+            background-color: #ffffff;
+            color: red;
+            margin-left: 2%;
+            box-shadow: 1px 0px 4px 2px lightcoral;
+            border: inherit;
+        }
+        button:focus {
+            outline: none;
+        }
+    }
+    .search{
+       .searchBox{
+            padding: 1% 20% 1% 1%;
+            border-radius: 0px;
+            border: solid 1px;
+       }
+       .searchButton{
+            border: solid 1px red;
+            background-color: red;
+            color: #ffffff;
+            padding: 1% 5%;
+       }
+       .searchButton:focus {
+            outline: none;
+        }
+    }
+    .moreFilter{
+        .row{
+            button{
+                width: 100% !important;
+            }
+        }
+        .css-1jllj6i-control{
+            display: none;
+        }
+        .css-1vr111p-option {
+            min-width: 221px;
+            text-align: initial;
+        }
+        p{
+            margin: 2px;
+        }
+        .moreFilterButton{
+            border: solid 1px red;
+            background-color: #ffffff;
+            color: red;
+            padding: 1% 5%;
+        }
+        div#collapseExample {
+            width: inherit;
+            position: fixed;
+            background-color: antiquewhite;
+            left: 0%;
+            padding: 0.6% 2%;
+        }
+        .moreFilterButton:focus {
+            outline: none;
+        }
+    }
+}
+
+
+.laptops{
+    margin: 1% 1%;
+    .table{
+        border-bottom: solid 1px black;
+        .actionIcons{
+            display: inline-flex;
+            flex-wrap: wrap;
+            padding: 0px;
+            gap: 24px;
+            .bars{
+                // flex: 0.3;
+            }
+            .pencil{
+                // flex: 0.3;
+            }
+            .trash{
+                // flex: 0.3;
+            }
+            p{
+                font-size: 10px;
+            }
+        }
+    }
+    thead {
+        background-color: red;
+        color: #ffffff;
+    }
+    tbody {
+        color: red;
+    }
+    .table-hover tbody tr:hover {
+        color: #ffffff;
+        background-color:red;
+        opacity: 0.6;
+    }
+    thead, tbody tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
+    tbody {
+        display: block;
+        max-height: 100vh - 28vh;
+        overflow-y: scroll;
+      }
+    tbody::-webkit-scrollbar {
+        width: 12px;
+    }
+     
+    // tbody::-webkit-scrollbar-track {
+    //     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    //     border-radius: 0px;
+    // }
+     
+    tbody::-webkit-scrollbar-thumb {
+        border-radius: 0px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+    }
+      
+}
+
+.modal-dialog{
+    max-width: 60% !important;
+    .modal-content {
+        border-radius: 0px;
+        border: 0px !important;
+        color: #ffffff;
+        background-color: red;
+        border-radius: 0px;
+        font-size: 14px !important;
+        .col-md-3{
+            text-align: center;
+            background-color: bisque;
+            padding: 3%;
+            color: red;
+            .buttonsModal{
+                display: grid;
+                position: absolute;
+                bottom: 9%;
+                width: 75%;
+                button {
+                    margin: 1% 0px;
+                }
+                button.btn.btn-secondary {
+                    background-color: inherit;
+                    color: red;
+                    border: solid 1px;
+                    border-radius: 0px;
+                }
+                button.btn.btn-primary {
+                    background-color: purple;
+                    border-radius: 0px;
+                    border: none;
+                }
+                button:focus {
+                    box-shadow: none;
+                }
+            }
+        }
+        .col-md-9{
+            padding: 3%;
+            .errorMessage{
+                background-color: #ffffff;
+                text-align: center;
+                color: red;
+                font-weight: bold;
+            }
+            label{
+                display: block;
+            }
+            .radio{
+                display: inline-block;
+                margin-right: 12%;
+                input{
+                    margin-right: 6px;
+                }
+            }
+        }
+    }
+}
+
+
+//latopDetails
+
+.latopDetails{
+    .closeDetails{
+        background-color: purple;
+        border-radius: 0px;
+        color: #ffffff;
+        width: 10%;
+        float: right;
+        margin: 1% 3%;
+    }
+    .closeDetails:hover {
+        color: #ffffff;
+    }
+    .laptopBrandName {
+        background-color: red;
+        padding: 5%;
+    }
+    .moreDetails{
+        background-color: bisque;
+        padding: 3% 6%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        .oneItem{
+            width: 16rem;
+            label{
+                color: rebeccapurple;
+                font-size: 12px;
+                margin: 0px !important;
+            }
+            p{
+                font-size: 15px;
+                color: red;
+            }
+        }
+    }
+}
+
+div#deleteLaptopModal {
+    width: 36%;
+    top: 17%;
+    .modal-content {
+        padding: 3%;
+        h4{
+            text-align: center;
+        }
+        .buttonsModal {
+            display: inline-grid;
+            button{
+                margin: 1% 25%;
+            }
+            button.btn.btn-secondary {
+                background-color: inherit;
+                color: #ffffff;
+                border: solid 1px #ffffff;
+                border-radius: 0px;
+            }
+            button.btn.btn-primary {
+                background-color: purple;
+                color: #ffffff;
+                border: none;
+                border-radius: 0px;
+            }
+        }
+    }
+    /* margin: 5%; */
+}
+
+.toast.show {
+    position: fixed;
+    top: 20%;
+    left: 42%;
+    display: block;
+    opacity: 1;
+    color: purple;
+    font-size: 18px;
+}

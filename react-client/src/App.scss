@@ -1,0 +1,53 @@
+.app {
+  .container{
+    margin-top: 3%;
+    .table-responsive{
+      max-height: 500px;
+    }
+  }
+  a.nav-link {
+    color: white !important;
+}
+  h3{
+    .nav-link{
+      color: red !important;
+      font-style: italic;
+    }
+  }
+  .navbar{
+    background-color: lightblue !important;
+  }
+  .formAlignment{
+    margin-top: 3%;
+  }
+  .container{    
+    .form-group{
+      width: 50%;
+    }
+    .btn-primary {
+      color: black;
+      background-color: lightpink !important;
+      border-color: lightpink;
+      outline: none !important;
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    .container{    
+      .form-group{
+        width: 100%;
+      }
+    }
+  } // end for media query max-width: 600px
+
+  @media only screen 
+    and (min-device-width : 768px) 
+    and (max-device-width : 1024px) 
+    and (orientation : portrait) {
+      .container{    
+        .form-group{
+          width: 100%;
+        }
+      }
+  } // end for media query min-device-width : 768px
+
+} // end of .app
