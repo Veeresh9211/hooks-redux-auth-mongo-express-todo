@@ -18,13 +18,6 @@ const LaptopSearch = ({ClearLaptopDetailsAdd, LaptopSearchFilter})=>{
         LaptopSearchFilter(e.currentTarget.value);
     }
 
-    const filterLaptopResults = (e) =>{
-        let searchValue = "";
-        if(e.length > 0) {
-            LaptopSearchFilter(e);
-        }
-    }
-    
     return(
         <div className="laptopSearch row">
 

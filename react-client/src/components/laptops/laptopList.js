@@ -51,15 +51,15 @@ const Laptops = ({GetLaptopsList, laptops, GetLaptopDetails, ClearLaptopDetail, 
                     <td>{val.price}</td>
                     <td style={{padding: "0px"}}>
                         <div className="actionIcons">
-                            <div className="bars">
-                                <i className="fa fa-bars" aria-hidden="true" onClick={()=>openViewModal(val._id)}></i>
+                            <div style={{color: "green"}} className="bars">
+                                <i  className="fa fa-bars" aria-hidden="true" onClick={()=>openViewModal(val._id)}></i>
                                 <p>View</p>
                             </div>
-                            <div className="pencil">
+                            <div style={{color: "purple"}} className="pencil">
                                 <i className="fa fa-pencil" aria-hidden="true" onClick={()=>openEditModal(val._id)}></i>
                                 <p>Edit</p>
                             </div>
-                            <div className="trash">
+                            <div style={{color: "red"}} className="trash">
                                 <i className="fa fa-trash-o" aria-hidden="true" onClick={()=>openDeleteModal(val._id)}></i>
                                 <p>Delete</p>
                             </div>
@@ -67,8 +67,65 @@ const Laptops = ({GetLaptopsList, laptops, GetLaptopDetails, ClearLaptopDetail, 
                     </td>
                 </tr>)
     })
+
+    let laptopsMobileRow = searchLaptopLists && searchLaptopLists.map((val,index)=>{
+        return (<React.Fragment>
+                <table className="table table-hover" style={{width:"100%"}}>
+                    <tbody>
+                    <tr>
+                        <th>Brand</th>
+                        <td>{val.brand}</td>
+                    </tr>
+                    <tr>
+                        <th>Processor</th>
+                        <td>{val.processor}</td>
+                    </tr>
+                    <tr>
+                        <th>Processor Brand</th>
+                        <td>{val.processorBrand}</td>
+                    </tr>
+                    <tr>
+                        <th>Screen Size</th>
+                        <td>{val.screenSize}</td>
+                            </tr>
+                    <tr>
+                        <th>Hard Disk</th>
+                        <td>{val.hardDisk}</td>
+                    </tr>
+                    <tr>
+                        <th>Ram</th>
+                        <td>{val.ram}</td>
+                    </tr>
+                    <tr>
+                        <th>Graphics Card</th>
+                        <td>{val.graphicsCard}</td>
+                    </tr>
+                    <tr>
+                        <th>Price</th>
+                        <td>{val.price}</td>
+                    </tr>
+                    <tr>
+                        <th>Actions</th>
+                        <td><div className="actionIcons">
+                            <div className="bars">
+                                <i style={{color: "green"}} className="fa fa-bars" aria-hidden="true" onClick={()=>openViewModal(val._id)}></i>
+                            </div>
+                            <div className="pencil">
+                                <i style={{color: "purple"}} className="fa fa-pencil" aria-hidden="true" onClick={()=>openEditModal(val._id)}></i>
+                            </div>
+                            <div className="trash">
+                                <i style={{color: "red"}} className="fa fa-trash-o" aria-hidden="true" onClick={()=>openDeleteModal(val._id)}></i>
+                            </div>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                    </table>
+                    <hr/>
+                    </React.Fragment>)
+    })
     return(<div className="laptops">
-        <table className="table table-hover">
+        <table id="dekstopTable" className="table table-hover">
             <thead>
                 <tr>
                 <th scope="col">Brand</th>
@@ -89,6 +146,10 @@ const Laptops = ({GetLaptopsList, laptops, GetLaptopDetails, ClearLaptopDetail, 
         <ViewLaptopDetails showHide={showModal} hideShowHandler={openViewModal}/>
         <AddModal showHide={showEditModal} label="Edit Laptop Configurations" hideShowHandler={openEditModal}/>
         <DeleteLaptopModal showHide={showDeleteModal} label="Delete Laptop Configurations" hideShowHandler={openDeleteModal}/>
+
+        <div id="mobileTable">
+            {laptopsMobileRow}
+        </div>
     </div>)
 }
 
