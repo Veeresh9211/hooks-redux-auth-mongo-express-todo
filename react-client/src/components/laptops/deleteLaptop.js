@@ -43,7 +43,6 @@ const DeleteLaptopModal = ({showHide, hideShowHandler, laptopDetails, DeleteLapt
 }
 
 const mapStateToProps = (state) =>{
-    debugger
     return{
         laptopDetails: state.laptop.laptopDetails,
         laptopDeleteStatus: state.laptop.laptopDeleteStatus

@@ -139,7 +139,7 @@ const AddModal = ({showHide, hideShowHandler, SaveLaptop, UpdateLaptop, laptopUp
                                             <option value="">--Select disk memory--</option>
                                             <option value="250 GB">250 GB</option>
                                             <option value="500 GB">500 GB</option>
-                                            <option value="1 TB GB">1 TB</option>
+                                            <option value="1 TB">1 TB</option>
                                         </select>
                                     </div>
                                     <div class="form-group">

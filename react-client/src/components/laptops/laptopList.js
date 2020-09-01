@@ -7,7 +7,7 @@ import AddModal from './addLaptops';
 import DeleteLaptopModal from './deleteLaptop';
 
 
-const Laptops = ({GetLaptopsList, laptops, GetLaptopDetails, ClearLaptopDetails})=>{
+const Laptops = ({GetLaptopsList, laptops, GetLaptopDetails, ClearLaptopDetail, searchLaptopLists})=>{
 
     const [showModal, setShowModal] = useState(false);
     const [showEditModal, setShowEditModal] = useState(false);
@@ -39,26 +39,28 @@ const Laptops = ({GetLaptopsList, laptops, GetLaptopDetails, ClearLaptopDetails}
         GetLaptopsList();
     },[0]);
 
-    let laptopsRow = laptops && laptops.map((val,index)=>{
+    let laptopsRow = searchLaptopLists && searchLaptopLists.map((val,index)=>{
         return (<tr>
                     <th scope="row">{val.brand}</th>
                     <td>{val.processor}</td>
+                    <td>{val.processorBrand}</td>
                     <td>{val.screenSize}</td>
-                    <td>{val.graphicsCard}</td>
+                    <td>{val.hardDisk}</td>
                     <td>{val.ram}</td>
+                    <td>{val.graphicsCard}</td>
                     <td>{val.price}</td>
                     <td style={{padding: "0px"}}>
                         <div className="actionIcons">
                             <div className="bars">
-                                <i class="fa fa-bars" aria-hidden="true" onClick={()=>openViewModal(val._id)}></i>
+                                <i className="fa fa-bars" aria-hidden="true" onClick={()=>openViewModal(val._id)}></i>
                                 <p>View</p>
                             </div>
                             <div className="pencil">
-                                <i class="fa fa-pencil" aria-hidden="true" onClick={()=>openEditModal(val._id)}></i>
+                                <i className="fa fa-pencil" aria-hidden="true" onClick={()=>openEditModal(val._id)}></i>
                                 <p>Edit</p>
                             </div>
                             <div className="trash">
-                                <i class="fa fa-trash-o" aria-hidden="true" onClick={()=>openDeleteModal(val._id)}></i>
+                                <i className="fa fa-trash-o" aria-hidden="true" onClick={()=>openDeleteModal(val._id)}></i>
                                 <p>Delete</p>
                             </div>
                         </div>                            
@@ -71,9 +73,11 @@ const Laptops = ({GetLaptopsList, laptops, GetLaptopDetails, ClearLaptopDetails}
                 <tr>
                 <th scope="col">Brand</th>
                 <th scope="col">Processor</th>
+                <th scope="col">Processor Brand</th>
                 <th scope="col">Screen Size</th>
-                <th scope="col">Graphics Card</th>
+                <th scope="col">Hard Disk</th>
                 <th scope="col">Ram</th>
+                <th scope="col">Graphics Card</th>
                 <th scope="col">Price</th>
                 <th scope="col">Actions</th>
                 </tr>
@@ -90,7 +94,8 @@ const Laptops = ({GetLaptopsList, laptops, GetLaptopDetails, ClearLaptopDetails}
 
 const mapStateToProps = (state) =>{
     return{
-        laptops: state.laptop.laptopLists
+        laptops: state.laptop.laptopLists,
+        searchLaptopLists: state.laptop.searchLaptopLists
     }
 }
 export default connect(mapStateToProps,{GetLaptopsList, GetLaptopDetails, ClearLaptopDetails})(Laptops);

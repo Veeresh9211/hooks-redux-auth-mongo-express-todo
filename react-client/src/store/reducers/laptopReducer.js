@@ -4,7 +4,8 @@ const intitalState={
     laptopSaveStatus: "",
     laptopUpdateStatus: "",
     laptopDetails: "",
-    laptopDeleteStatus: ""
+    laptopDeleteStatus: "",
+    laptopFilterResult: ""
 }
 
 const LaptopReducer = (state=intitalState, action) =>{
@@ -18,7 +19,8 @@ const LaptopReducer = (state=intitalState, action) =>{
         case 'LAPTOP_LIST':
             return{
                 ...state,
-                laptopLists: action.val
+                laptopLists: action.val,
+                searchLaptopLists: action.val
             }
         break;
         case 'LAPTOP_SAVE_SUCCESS':
@@ -37,6 +39,34 @@ const LaptopReducer = (state=intitalState, action) =>{
             return{
                 ...state,
                 laptopDeleteStatus: action.val
+            }
+        break;
+        case 'LAPTOP_FILTER_SEARCH':
+            
+            const filteredData = state.laptopLists.filter(laptop => {
+                return Object.keys(laptop).some((key) =>{
+                    let res = ""
+                    if(typeof laptop[key] === 'string'){
+                        res = laptop[key].toLowerCase().includes(action.val.toLowerCase());
+                        if (res)
+                        {
+                            return true;
+                        }
+                    }
+                    else{
+                        res = laptop[key].toString().includes(action.val)
+                        if (res)
+                        {
+                            return true
+                        }
+                    }
+                }
+                );
+              });
+              let finalRes = action.val === "" ? state.laptopLists : [...filteredData]; 
+            return{
+                ...state,
+                searchLaptopLists: finalRes
             }
         break;
         case 'LAPTOP_DETAILS':

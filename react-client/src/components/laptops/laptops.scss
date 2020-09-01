@@ -2,6 +2,15 @@
     // .col-sm-3{
     //     font-size: 14px;
     // }
+    input#searchBox:focus {
+        outline: solid 1px green;
+    }
+    button.clearFilter {
+        /* width: 50% !important; */
+        background-color: lawngreen;
+        border: none;
+        height: 100%;
+    }
     background-color: bisque;
     padding: 8px 0px;
     margin: 0px !important;
@@ -25,7 +34,8 @@
             padding: 1% 20% 1% 1%;
             border-radius: 0px;
             border: solid 1px;
-       }
+            width: 33rem;
+        }
        .searchButton{
             border: solid 1px red;
             background-color: red;
@@ -37,11 +47,6 @@
         }
     }
     .moreFilter{
-        .row{
-            button{
-                width: 100% !important;
-            }
-        }
         .css-1jllj6i-control{
             display: none;
         }
@@ -59,11 +64,18 @@
             padding: 1% 5%;
         }
         div#collapseExample {
+            z-index: 9999;
+            box-shadow: 6px 1px 6px 3px rebeccapurple;
             width: inherit;
             position: fixed;
             background-color: antiquewhite;
             left: 0%;
             padding: 0.6% 2%;
+            margin-top: -40px;
+            .search{
+                text-align: left;
+                font-size: 14px;
+            }
         }
         .moreFilterButton:focus {
             outline: none;

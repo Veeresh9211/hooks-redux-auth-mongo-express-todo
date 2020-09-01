@@ -1,9 +1,11 @@
 import axios from 'axios';
 
+const baseUrl = process.env.REACT_APP_BASE_URL;
+
 export const GetLaptopDetails =(id)=>{
     return (dispatch)=>{
         dispatch({type:'BEGIN_API'});
-        axios.get(`http://localhost:8080/laptops/${id}`)
+        axios.get(`${baseUrl}/laptops/${id}`)
         .then(function (response) {
             dispatch({type: 'LAPTOP_DETAILS', val: response.data[0]});
             // dispatch({type: 'END_API', val: false});
@@ -17,7 +19,7 @@ export const GetLaptopDetails =(id)=>{
 export const GetLaptopsList =()=>{
     return (dispatch)=>{
         dispatch({type:'BEGIN_API'});
-        axios.get('http://localhost:8080/laptops')
+        axios.get(`${baseUrl}/laptops`)
         .then(function (response) {
             dispatch({type: 'LAPTOP_LIST', val: response.data});
             // dispatch({type: 'END_API', val: false});
@@ -31,7 +33,7 @@ export const GetLaptopsList =()=>{
 export const SaveLaptop =(laptopRecord)=>{
     return (dispatch)=>{
         dispatch({type:'BEGIN_API'});
-        axios.post('http://localhost:8080/laptops', laptopRecord)
+        axios.post(`${baseUrl}/laptops`, laptopRecord)
         .then(function (response) {
             dispatch({type: 'LAPTOP_SAVE_SUCCESS', val: response.status});
             // dispatch({type: 'END_API', val: false});
@@ -46,7 +48,7 @@ export const SaveLaptop =(laptopRecord)=>{
 export const UpdateLaptop =(laptopRecord)=>{
     return (dispatch)=>{
         dispatch({type:'BEGIN_API'});
-        axios.put(`http://localhost:8080/laptops/${laptopRecord._id}`, laptopRecord)
+        axios.put(`${baseUrl}/laptops/${laptopRecord._id}`, laptopRecord)
         .then(function (response) {
             dispatch({type: 'LAPTOP_UPDATE_SUCCESS', val: response.status});
             // dispatch({type: 'END_API', val: false});
@@ -61,7 +63,7 @@ export const UpdateLaptop =(laptopRecord)=>{
 export const DeleteLaptop =(id)=>{
     return (dispatch)=>{
         dispatch({type:'BEGIN_API'});
-        axios.delete(`http://localhost:8080/laptops/${id}`)
+        axios.delete(`${baseUrl}/laptops/${id}`)
         .then(function (response) {
             dispatch({type: 'LAPTOP_DELETE_SUCCESS', val: response.status});
             // dispatch({type: 'END_API', val: false});
@@ -81,6 +83,12 @@ export const ClearLaptopDetails = () =>{
 export const ClearLaptopDetailsAdd = () =>{
     return (dispatch)=>{
         dispatch({type: 'CLEAR_LAPTOP_DETAILS_ADD', val: ""});
+    }
+}
+
+export const LaptopSearchFilter = (key) =>{
+    return (dispatch)=>{
+        dispatch({type: 'LAPTOP_FILTER_SEARCH', val: key});
     }
 }
 

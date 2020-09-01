@@ -2,58 +2,55 @@ import React, {useState} from 'react';
 import ReactMultiSelectCheckboxes from 'react-multiselect-checkboxes';
 import './laptops.scss';
 import AddModal from './addLaptops';
-import {ClearLaptopDetailsAdd} from '../../store/actions/laptopAction';
+import {ClearLaptopDetailsAdd, LaptopSearchFilter} from '../../store/actions/laptopAction';
 import {connect} from 'react-redux';
 
-const LaptopSearch = ({ClearLaptopDetailsAdd})=>{
+const LaptopSearch = ({ClearLaptopDetailsAdd, LaptopSearchFilter})=>{
 
     const [showModal, setShowModal] = useState(false);
-    const ccc=[
-        { label: 'Thing 1', value: 1},
-        { label: 'Thing 2', value: 2},
-    ];
 
     const openAddModal = () =>{
         ClearLaptopDetailsAdd();
         setShowModal(!showModal);
     }
+
+    const searchLaptopResults = (e)=>{
+        LaptopSearchFilter(e.currentTarget.value);
+    }
+
+    const filterLaptopResults = (e) =>{
+        let searchValue = "";
+        if(e.length > 0) {
+            LaptopSearchFilter(e);
+        }
+    }
+    
     return(
         <div className="laptopSearch row">
 
-            <div className="col-sm-3 search">
-                <input type="text" className="searchBox" placeholder="Search Anything"/>
-                <button className="searchButton">Search</button>
-            </div>
+            
             <div className="col-sm-3 moreFilter">
                 <p>
                 <button className="moreFilterButton" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                    More Filters
+                    Search
                 </button>
                 </p>
                 <div className="collapse" id="collapseExample">
                     <div className="row">
-                        <div className="col-sm-2">
-                            <ReactMultiSelectCheckboxes options={ccc} />
+                        <div className="col-sm-6 search">
+                            <input type="text" className="searchBox" id="searchBox" onChange={(e)=>searchLaptopResults(e)} placeholder="Search Anything"/>
+                            <button className="searchButton" >Search</button>
                         </div>
-                        <div className="col-sm-2">
-                            <ReactMultiSelectCheckboxes options={ccc} />
+                        <div className="col-sm-5">
                         </div>
-                        <div className="col-sm-2">
-                            <ReactMultiSelectCheckboxes options={ccc} />
+                        <div style={{textAlign: "end", margin: "auto 0"}} className="col-sm-1">
+                            <i data-toggle="collapse" data-target="#collapseExample" className="fa fa-window-close-o" aria-hidden="true"></i>
                         </div>
-                        <div className="col-sm-2">
-                            <ReactMultiSelectCheckboxes options={ccc} />
-                        </div>
-                        <div className="col-sm-2">
-                            <ReactMultiSelectCheckboxes options={ccc} />
-                        </div>
-                        <div className="col-sm-2">
-                            <ReactMultiSelectCheckboxes options={ccc} />
-                        </div>
+                        
                     </div>
                 </div>
             </div>
-            <div className="col-sm-5">
+            <div className="col-sm-8">
                 
             </div>
             <div className="col-sm-1 addLaptops">
@@ -64,4 +61,4 @@ const LaptopSearch = ({ClearLaptopDetailsAdd})=>{
     )
 }
 
-export default connect(null,{ClearLaptopDetailsAdd})(LaptopSearch);
+export default connect(null,{ClearLaptopDetailsAdd, LaptopSearchFilter})(LaptopSearch);
