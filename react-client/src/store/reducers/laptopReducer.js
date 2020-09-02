@@ -75,6 +75,7 @@ const LaptopReducer = (state=intitalState, action) =>{
             }
         break;
         case 'CLEAR_LAPTOP_DETAILS':
+            debugger
             return{
                 ...state,
                 laptopSaveStatus: "",
@@ -85,7 +86,8 @@ const LaptopReducer = (state=intitalState, action) =>{
             return{
                 ...state,
                 laptopDetails: "",
-                laptopSaveStatus: ""
+                laptopSaveStatus: "",
+                laptopUpdateStatus: ""
             }
         break;
         case 'START_LOADER':

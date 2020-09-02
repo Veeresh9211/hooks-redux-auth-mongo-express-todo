@@ -7,7 +7,7 @@ import AddModal from './addLaptops';
 import DeleteLaptopModal from './deleteLaptop';
 import DataLoader from '../dataLoadeNotification/dataLoader';
 
-const Laptops = ({GetLaptopsList, laptops, GetLaptopDetails, ClearLaptopDetail, searchLaptopLists})=>{
+const Laptops = ({GetLaptopsList, laptops, GetLaptopDetails, ClearLaptopDetails, searchLaptopLists})=>{
 
     const [showModal, setShowModal] = useState(false);
     const [showEditModal, setShowEditModal] = useState(false);
