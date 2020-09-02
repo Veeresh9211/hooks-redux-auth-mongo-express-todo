@@ -1,6 +1,8 @@
 import axios from 'axios';
-
+import io from "socket.io-client";
 const baseUrl = process.env.REACT_APP_BASE_URL;
+
+
 
 export const GetLaptopDetails =(id)=>{
     return (dispatch)=>{
@@ -46,11 +48,18 @@ export const SaveLaptop =(laptopRecord)=>{
 }
 
 export const UpdateLaptop =(laptopRecord)=>{
+    const socket = io.connect(baseUrl);
     return (dispatch)=>{
         dispatch({type:'BEGIN_API'});
         axios.put(`${baseUrl}/laptops/${laptopRecord._id}`, laptopRecord)
         .then(function (response) {
-            dispatch({type: 'LAPTOP_UPDATE_SUCCESS', val: response.status});
+            debugger
+            // socket.emit('updatedLaptop','success');
+            // socket.on('updatedLaptopLists',(res)=>{
+            //     debugger
+            //     console.log(res)
+            //     dispatch({type: 'LAPTOP_UPDATE_SUCCESS', val: response.status});
+            // })
             // dispatch({type: 'END_API', val: false});
             console.log(response);
         })
