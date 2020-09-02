@@ -15,7 +15,9 @@ const AddModal = ({showHide, hideShowHandler, SaveLaptop, UpdateLaptop, laptopUp
     }
 
     const submitForm = (e)=>{
+        // window.scrollTo(0, 0);
         if(laptopObject === null || Object.keys(laptopObject).length < 12){
+            document.getElementById("addUpdateLaptopModal").parentElement.scrollTo({top: 0, behavior: 'smooth'});
             setErrorMessage("All fields are mandatory!!!");
             return false;
         }
@@ -42,7 +44,7 @@ const AddModal = ({showHide, hideShowHandler, SaveLaptop, UpdateLaptop, laptopUp
     },[laptopDetails])
 
     return(
-        <Modal show={showHide} onHide={()=>hideShowHandler()}>
+        <Modal show={showHide} onHide={()=>hideShowHandler()} id="addUpdateLaptopModal">
                 <div className="row">
                     <div className="col-md-3" id="addLaptopActionButtonsDekstop">
                         <h3>{label}</h3>

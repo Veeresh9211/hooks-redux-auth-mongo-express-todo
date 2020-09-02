@@ -43,9 +43,10 @@ export const SaveLaptop =(laptopRecord)=>{
         }).then((response)=>{
             dispatch({type: 'LAPTOP_LIST', val: response.data});
             dispatch({type: 'LAPTOP_SAVE_SUCCESS', val: saveRes.status});
-
+            document.getElementById("addUpdateLaptopModal").parentElement.scrollTo({top: 0, behavior: 'smooth'});
         })
         .catch(function (error) {
+            document.getElementById("addUpdateLaptopModal").parentElement.scrollTo({top: 0, behavior: 'smooth'});
             console.log(error);
         })
     }
@@ -63,6 +64,7 @@ export const UpdateLaptop =(laptopRecord)=>{
         }).then((response)=>{
             dispatch({type: 'LAPTOP_LIST', val: response.data});
             dispatch({type: 'LAPTOP_UPDATE_SUCCESS', val: updateRes.status});
+            document.getElementById("addUpdateLaptopModal").parentElement.scrollTo({top: 0, behavior: 'smooth'});
         })
             // socket.emit('updatedLaptop','success');
             // socket.on('updatedLaptopLists',(res)=>{
@@ -72,6 +74,7 @@ export const UpdateLaptop =(laptopRecord)=>{
             // })
             // dispatch({type: 'END_API', val: false});
         .catch(function (error) {
+            document.getElementById("addUpdateLaptopModal").parentElement.scrollTo({top: 0, behavior: 'smooth'});
             console.log(error);
         })
     }

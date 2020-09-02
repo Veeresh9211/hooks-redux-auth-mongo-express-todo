@@ -1,14 +1,16 @@
-// .modal-content{
-//     background-color: inherit !important;
-//     border: none !important;
-//     transform: translate(-50%, -50%);
-//     // position: fixed !important;
-//     // top: 50%;
-//     // left: 50%;
-//     width: 0% !important;
-//     top: calc(33vh - (/* height */100px / 2));
-//     left: calc(32vw - (/* width */140px / 2));
-// }
+#dataLoader{
+    .modal-content{
+        background-color: inherit !important;
+        border: none !important;
+        transform: translate(-50%, -50%);
+        // position: fixed !important;
+        // top: 50%;
+        // left: 50%;
+        width: 0% !important;
+        top: calc(33vh - (/* height */100px / 2));
+        left: calc(32vw - (/* width */140px / 2));
+    }
+}
 
 .toast.show {
     position: fixed;

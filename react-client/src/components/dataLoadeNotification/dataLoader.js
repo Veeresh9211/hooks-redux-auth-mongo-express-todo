@@ -7,7 +7,7 @@ import './dataLoader.scss';
 function DataLoader(props){
   const loader1 = useSelector(state => state.laptop.loader);
      return(
-         <Modal show={loader1}>
+         <Modal show={loader1} id="dataLoader">
             <Loader
                type="Bars"
                color="#ffffff"

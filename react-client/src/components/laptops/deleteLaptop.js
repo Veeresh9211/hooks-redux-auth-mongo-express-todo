@@ -20,7 +20,7 @@ const DeleteLaptopModal = ({showHide, hideShowHandler, laptopDetails, DeleteLapt
     },[laptopDeleteStatus]);
 
     if(laptopDeleteStatus === 200){
-        deleteMsg = <Toast onClose={() => setShow(false)} show={true} delay={2000} autohide>
+        deleteMsg = <Toast onClose={() => setShow(false)} show={show} delay={2000} autohide>
                         <Toast.Body>Successfully Deleted</Toast.Body>
                     </Toast>
     }
