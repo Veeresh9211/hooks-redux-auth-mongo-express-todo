@@ -45,7 +45,7 @@ const LaptopSearch = ({ClearLaptopDetailsAdd, LaptopSearchFilter, searchLaptopLi
                         </div>
                         
                     </div>  
-                    {searchLaptopLists && showRecords && searchLaptopLists.length !== 0 && <p id="resultCountMobileOnly">{searchLaptopLists.length} laptop(s) found. </p>}
+                    {document.getElementById("searchBox") && document.getElementById("searchBox").value !== "" && searchLaptopLists && showRecords && searchLaptopLists.length !== 0 && <p id="resultCountMobileOnly">{searchLaptopLists.length} laptop(s) found. </p>}
                 </div>
                 
             </div>
