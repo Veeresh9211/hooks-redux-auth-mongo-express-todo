@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import './dataLoader.scss';
 
 function DataLoader(props){
-  const loader1 = useSelector(state => state.busR.loader);
+  const loader1 = useSelector(state => state.laptop.loader);
      return(
          <Modal show={loader1}>
             <Loader

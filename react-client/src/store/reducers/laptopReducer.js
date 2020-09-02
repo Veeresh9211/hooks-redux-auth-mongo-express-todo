@@ -12,8 +12,7 @@ const LaptopReducer = (state=intitalState, action) =>{
     switch(action.type){
         case 'BEGIN_API':
             return{
-                ...state,
-                loader: true
+                ...state
             }
         break;
         case 'LAPTOP_LIST':
@@ -89,7 +88,13 @@ const LaptopReducer = (state=intitalState, action) =>{
                 laptopSaveStatus: ""
             }
         break;
-        case 'END_API':
+        case 'START_LOADER':
+            return{
+                ...state,
+                loader: true
+            }
+        break;
+        case 'END_LOADER':
             return{
                 ...state,
                 loader: false

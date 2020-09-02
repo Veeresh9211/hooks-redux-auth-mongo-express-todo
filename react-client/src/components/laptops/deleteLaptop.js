@@ -20,7 +20,7 @@ const DeleteLaptopModal = ({showHide, hideShowHandler, laptopDetails, DeleteLapt
     },[laptopDeleteStatus]);
 
     if(laptopDeleteStatus === 200){
-        deleteMsg = <Toast onClose={() => setShow(false)} show={show} delay={2000} autohide>
+        deleteMsg = <Toast onClose={() => setShow(false)} show={true} delay={2000} autohide>
                         <Toast.Body>Successfully Deleted</Toast.Body>
                     </Toast>
     }
@@ -28,7 +28,7 @@ const DeleteLaptopModal = ({showHide, hideShowHandler, laptopDetails, DeleteLapt
         <React.Fragment>
             {deleteMsg}
             <Modal show={showHide} id="deleteLaptopModal" onHide={()=>hideShowHandler()}>
-                <h4>Are you sure you want to delete - {laptopDetails.brand} ? </h4>
+                <h5>Are you sure you want to delete - {laptopDetails.brand} ? </h5>
                 <div className="buttonsModal">
                     <Button variant="secondary" onClick={()=>hideShowHandler()}>
                         Cancel

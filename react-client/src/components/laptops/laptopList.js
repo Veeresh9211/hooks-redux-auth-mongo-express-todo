@@ -5,7 +5,7 @@ import {GetLaptopsList, GetLaptopDetails, ClearLaptopDetails} from '../../store/
 import ViewLaptopDetails from './viewLaptopDetails';
 import AddModal from './addLaptops';
 import DeleteLaptopModal from './deleteLaptop';
-
+import DataLoader from '../dataLoadeNotification/dataLoader';
 
 const Laptops = ({GetLaptopsList, laptops, GetLaptopDetails, ClearLaptopDetail, searchLaptopLists})=>{
 
@@ -66,7 +66,7 @@ const Laptops = ({GetLaptopsList, laptops, GetLaptopDetails, ClearLaptopDetail, 
                         </div>                            
                     </td>
                 </tr>)
-    })
+            });
 
     let laptopsMobileRow = searchLaptopLists && searchLaptopLists.map((val,index)=>{
         return (<React.Fragment>
@@ -123,8 +123,11 @@ const Laptops = ({GetLaptopsList, laptops, GetLaptopDetails, ClearLaptopDetail, 
                     </table>
                     <hr/>
                     </React.Fragment>)
-    })
+        })
+    
+    let noSearchResults = searchLaptopLists && searchLaptopLists.length === 0 ? "No Laptops Found. Please refine you'r search keyword" : "";
     return(<div className="laptops">
+        <DataLoader/>
         <table id="dekstopTable" className="table table-hover">
             <thead>
                 <tr>
@@ -141,6 +144,7 @@ const Laptops = ({GetLaptopsList, laptops, GetLaptopDetails, ClearLaptopDetail, 
             </thead>
             <tbody>
                 {laptopsRow}
+                <p className="noResultFoundText">{noSearchResults}</p>
             </tbody>
         </table>
         <ViewLaptopDetails showHide={showModal} hideShowHandler={openViewModal}/>
@@ -149,6 +153,7 @@ const Laptops = ({GetLaptopsList, laptops, GetLaptopDetails, ClearLaptopDetail, 
 
         <div id="mobileTable">
             {laptopsMobileRow}
+            <p className="noResultFoundText"><br/>{noSearchResults}</p>
         </div>
     </div>)
 }

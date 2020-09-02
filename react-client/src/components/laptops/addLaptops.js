@@ -44,7 +44,7 @@ const AddModal = ({showHide, hideShowHandler, SaveLaptop, UpdateLaptop, laptopUp
     return(
         <Modal show={showHide} onHide={()=>hideShowHandler()}>
                 <div className="row">
-                    <div className="col-md-3">
+                    <div className="col-md-3" id="addLaptopActionButtonsDekstop">
                         <h3>{label}</h3>
                         <div className="buttonsModal">
                             <Button variant="secondary" onClick={()=>hideShowHandler()}>
@@ -60,6 +60,7 @@ const AddModal = ({showHide, hideShowHandler, SaveLaptop, UpdateLaptop, laptopUp
                         {laptopSaveStatus === 200 && <p className="errorMessage">New Laptop details added :-)</p>}
                         {laptopUpdateStatus === 200 && <p className="errorMessage">Laptop Configuration updated :-)</p>}
                         <form>
+                            <h4 id="mobileLabelOnly">{label}</h4>
                             <div className="row">
                                 <div className="col-md-6">
                                     <div class="form-group">
@@ -177,7 +178,17 @@ const AddModal = ({showHide, hideShowHandler, SaveLaptop, UpdateLaptop, laptopUp
                             </div>
                             </div>
                         </form>
-                    </div>{/* col-md-12 */}
+                    </div>{/* col-md-9 */}
+                    <div className="col-md-3" id="addLaptopActionButtonsMobile">
+                        <div className="buttonsModal">
+                            <Button variant="secondary" onClick={()=>hideShowHandler()}>
+                                Close
+                            </Button>
+                            <Button variant="primary" onClick={(e)=>submitForm(e)}>
+                                {laptopDetails === "" ? "Save Changes" : "Update Changes"}
+                            </Button>
+                        </div>
+                    </div>
                 </div>{/* end for row */}
         </Modal>
     )

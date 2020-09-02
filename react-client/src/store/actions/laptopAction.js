@@ -34,12 +34,16 @@ export const GetLaptopsList =()=>{
 
 export const SaveLaptop =(laptopRecord)=>{
     return (dispatch)=>{
+        let saveRes = "";
         dispatch({type:'BEGIN_API'});
         axios.post(`${baseUrl}/laptops`, laptopRecord)
         .then(function (response) {
-            dispatch({type: 'LAPTOP_SAVE_SUCCESS', val: response.status});
-            // dispatch({type: 'END_API', val: false});
-            console.log(response);
+            saveRes = response;
+            return axios.get(`${baseUrl}/laptops`);
+        }).then((response)=>{
+            dispatch({type: 'LAPTOP_LIST', val: response.data});
+            dispatch({type: 'LAPTOP_SAVE_SUCCESS', val: saveRes.status});
+
         })
         .catch(function (error) {
             console.log(error);
@@ -49,11 +53,17 @@ export const SaveLaptop =(laptopRecord)=>{
 
 export const UpdateLaptop =(laptopRecord)=>{
     const socket = io.connect(baseUrl);
+    let updateRes = "";
     return (dispatch)=>{
         dispatch({type:'BEGIN_API'});
         axios.put(`${baseUrl}/laptops/${laptopRecord._id}`, laptopRecord)
         .then(function (response) {
-            debugger
+            updateRes = response;
+            return axios.get(`${baseUrl}/laptops`);
+        }).then((response)=>{
+            dispatch({type: 'LAPTOP_LIST', val: response.data});
+            dispatch({type: 'LAPTOP_UPDATE_SUCCESS', val: updateRes.status});
+        })
             // socket.emit('updatedLaptop','success');
             // socket.on('updatedLaptopLists',(res)=>{
             //     debugger
@@ -61,8 +71,6 @@ export const UpdateLaptop =(laptopRecord)=>{
             //     dispatch({type: 'LAPTOP_UPDATE_SUCCESS', val: response.status});
             // })
             // dispatch({type: 'END_API', val: false});
-            console.log(response);
-        })
         .catch(function (error) {
             console.log(error);
         })
@@ -71,12 +79,15 @@ export const UpdateLaptop =(laptopRecord)=>{
 
 export const DeleteLaptop =(id)=>{
     return (dispatch)=>{
+        let deleteRes = "";
         dispatch({type:'BEGIN_API'});
         axios.delete(`${baseUrl}/laptops/${id}`)
         .then(function (response) {
-            dispatch({type: 'LAPTOP_DELETE_SUCCESS', val: response.status});
-            // dispatch({type: 'END_API', val: false});
-            console.log(response);
+        deleteRes = response;
+            return axios.get(`${baseUrl}/laptops`);
+        }).then((response)=>{
+            dispatch({type: 'LAPTOP_LIST', val: response.data});
+            dispatch({type: 'LAPTOP_DELETE_SUCCESS', val: deleteRes.status});
         })
         .catch(function (error) {
             console.log(error);
@@ -97,7 +108,11 @@ export const ClearLaptopDetailsAdd = () =>{
 
 export const LaptopSearchFilter = (key) =>{
     return (dispatch)=>{
+        dispatch({type: 'START_LOADER', val: true});
         dispatch({type: 'LAPTOP_FILTER_SEARCH', val: key});
+        setTimeout(function(){ dispatch({type: 'END_LOADER', val: true}) }, 1000);
+        
+
     }
 }
 

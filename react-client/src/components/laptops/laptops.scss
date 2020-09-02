@@ -2,6 +2,9 @@
     // .col-sm-3{
     //     font-size: 14px;
     // }
+    #resultCountMobileOnly{
+        display: none;
+    }
     input#searchBox:focus {
         outline: solid 1px green;
     }
@@ -85,7 +88,7 @@
 
 
 
-@media only screen and (max-width: 560px) {
+@media only screen and (max-width: 768px) {
     .laptopSearch {
         flex-wrap: initial !important;
         .moreFilter
@@ -94,25 +97,60 @@
                 width: 8rem;
             }
          }
-         div#collapseExample{
-            padding: 2% 3% 3% 3% !important;
-             .row{
+         #resultCountMobileOnly{
+             display: block;
+         }
+         div#collapseExample {
+            p{
+                position: absolute;
+                background-color: red;
+                width: 99vw;
+                padding: 1% 16%;
+                margin-top: 0px !important;
+                color: #ffffff;
+                font-size: 12px;
+                left: 0%;
+            }
+            width: 100vw !important;
+            position: absolute !important;
+            background-color: antiquewhite;
+            // left: 1%;
+            // padding: 0.6% 2%;
+            margin-top: -40px;
+            // top: calc(33vh - (/* height */100px / 2));
+            // left: calc(19vw - (/* width */140px / 2)) !important;
+            .row{
                 flex-wrap: wrap-reverse;
+                margin: 0px;
                 .search{
                     text-align: center;
                 }
              }
+        }
+         div#collapseExample{
+            padding: 2% 3% 3% 3% !important;
+             
          }
          .search .searchBox {
-            width: 14rem;
+            width: 13rem;
         }
     }
 }
 
 .laptops{
     margin: 1% 1%;
+    .noResultFoundText {
+        text-align: center;
+        font-style: italic;
+        color: red;
+    }
     #mobileTable{
         display: none;
+    }
+    .table-hover tbody tr:hover {
+        color: rebeccapurple !important;
+        background-color: lightgreen !important;
+        opacity: 0.8 !important;
     }
     .table{
         border-bottom: solid 1px black;
@@ -164,8 +202,13 @@
       
 }
 
-@media only screen and (max-width: 560px) {
+@media only screen and (max-width: 768px) {
     .laptops {
+        // b.noResultFoundText {
+        //     margin: 0%;
+        //     color: red;
+        //     font-style: italic;
+        // }
         hr{
             background-color: red;
             margin: 3% 0%;
@@ -174,7 +217,7 @@
         margin: 2% 0% !important;
         table.table.table-hover {
             tbody {
-                overflow-y: hidden;
+                overflow-y: auto;
                 color: black;
             }
             border: none;
@@ -198,6 +241,15 @@
 
 .modal-dialog{
     max-width: 60% !important;
+    // #addLaptopActionButtonsDekstop{
+
+    // }
+    #addLaptopActionButtonsMobile{
+        display: none;
+    }
+    #mobileLabelOnly{
+        display: none;
+    }
     .modal-content {
         border-radius: 0px;
         border: 0px !important;
@@ -256,6 +308,42 @@
     }
 }
 
+@media only screen and (max-width: 768px) {
+    .fade.modal.show {
+        padding-left: 0px;
+    }
+    .modal-dialog{
+        margin: 0px !important;
+        #addLaptopActionButtonsDekstop{
+            display: none;
+        }
+        #mobileLabelOnly{
+            display: block;
+        }
+        #addLaptopActionButtonsMobile{
+            display: block;
+        }
+        max-width: inherit !important;
+        .modal-content{
+            .row{
+                margin: 0px;
+            }
+            .col-md-9{
+                h4{
+                    background-color: bisque;
+                    padding: 5%;
+                    text-align: center;
+                    color: red;
+                }
+            }
+            .col-md-3 .buttonsModal {
+                position: initial;
+                width: auto;
+                padding: 0% 11%;
+            }
+        }
+    }
+}
 
 //latopDetails
 
@@ -296,12 +384,21 @@
     }
 }
 
+@media only screen and (max-width: 768px) {
+    .latopDetails .closeDetails {
+        width: initial;
+        padding: 1% 20%;
+        float: none;
+        margin: 2% 6rem;
+    }
+}
+
 div#deleteLaptopModal {
     width: 36%;
     top: 17%;
     .modal-content {
         padding: 3%;
-        h4{
+        h5{
             text-align: center;
         }
         .buttonsModal {
@@ -326,12 +423,19 @@ div#deleteLaptopModal {
     /* margin: 5%; */
 }
 
+@media only screen and (max-width: 768px) {
+    div#deleteLaptopModal {
+        width: inherit !important;
+        top: 17%;
+    }
+}
 .toast.show {
     position: fixed;
-    top: 20%;
-    left: 42%;
+    top: calc(33vh - (/* height */100px / 2));
+    left: calc(43vw - (/* width */140px / 2));
     display: block;
     opacity: 1;
     color: purple;
     font-size: 18px;
 }
+
