@@ -82,17 +82,29 @@ routes.post('/filters',(req,res)=>{
     let cond1 = keys[1] !== undefined ? `$in` : `$ne`
     let cond2 = keys[2] !== undefined ? `$in` : `$ne`
     let cond3 = keys[3] !== undefined ? `$in` : `$ne`
+    let cond4 = keys[4] !== undefined ? `$in` : `$ne`
+    let cond5 = keys[5] !== undefined ? `$in` : `$ne`
+    let cond6 = keys[6] !== undefined ? `$in` : `$ne`
+    let cond7 = keys[7] !== undefined ? `$in` : `$ne`
 
     let body1 = keys[0] !== undefined ? req.body[keys[0]] : ``
     let body2 = keys[1] !== undefined ? req.body[keys[1]] : ``
     let body3 = keys[2] !== undefined ? req.body[keys[2]] : ``
     let body4 = keys[3] !== undefined ? req.body[keys[3]] : ``
+    let body5 = keys[4] !== undefined ? req.body[keys[4]] : ``
+    let body6 = keys[5] !== undefined ? req.body[keys[5]] : ``
+    let body7 = keys[6] !== undefined ? req.body[keys[6]] : ``
+    let body8 = keys[7] !== undefined ? req.body[keys[7]] : ``
   
     Laptops.find({
         [keys[0]]: { [cond0]: body1 },
         [keys[1]]: { [cond1]: body2 },
         [keys[2]]: { [cond2]: body3 },
         [keys[3]]: { [cond3]: body4 },
+        [keys[4]]: { [cond4]: body5 },
+        [keys[5]]: { [cond5]: body6 },
+        [keys[6]]: { [cond6]: body7 },
+        [keys[7]]: { [cond7]: body8 },
     },(err,docs)=>{
         if (err) return res.status(500).send('Error Deleting Latptop Configurations');
         if(!err) return res.send(docs);

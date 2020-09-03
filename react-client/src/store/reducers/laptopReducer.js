@@ -6,7 +6,7 @@ const intitalState={
     laptopDetails: "",
     laptopDeleteStatus: "",
     laptopFilterResult: "",
-    laptopFilterKeys: ""
+    laptopFilterKeys: {}
 }
 
 const LaptopReducer = (state=intitalState, action) =>{
@@ -72,7 +72,8 @@ const LaptopReducer = (state=intitalState, action) =>{
         case 'Filter_Laptop_Results':
             return{
                 ...state,
-                searchLaptopLists: action.val
+                searchLaptopLists: action.val.res,
+                laptopFilterKeys: action.val.filterKeysApplied
             }
           
         break;

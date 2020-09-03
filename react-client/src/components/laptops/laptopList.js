@@ -7,7 +7,7 @@ import AddModal from './addLaptops';
 import DeleteLaptopModal from './deleteLaptop';
 import DataLoader from '../dataLoadeNotification/dataLoader';
 
-const Laptops = ({GetLaptopsList, laptops, GetLaptopDetails, ClearLaptopDetails, searchLaptopLists})=>{
+const Laptops = ({GetLaptopsList, laptops, GetLaptopDetails, ClearLaptopDetails, searchLaptopLists, laptopFilterKeys})=>{
 
     const [showModal, setShowModal] = useState(false);
     const [showEditModal, setShowEditModal] = useState(false);
@@ -36,11 +36,14 @@ const Laptops = ({GetLaptopsList, laptops, GetLaptopDetails, ClearLaptopDetails,
     }
 
     useEffect(()=>{
-        GetLaptopsList();
+        if(Object.keys(laptopFilterKeys).length == 0){
+            GetLaptopsList();
+        }
+       
     },[0]);
 
     let laptopsRow = searchLaptopLists && searchLaptopLists.map((val,index)=>{
-        return (<tr>
+        return (<tr key={index}>
                     <th scope="row">{val.brand}</th>
                     <td>{val.processor}</td>
                     <td>{val.processorBrand}</td>
@@ -69,7 +72,7 @@ const Laptops = ({GetLaptopsList, laptops, GetLaptopDetails, ClearLaptopDetails,
             });
 
     let laptopsMobileRow = searchLaptopLists && searchLaptopLists.map((val,index)=>{
-        return (<React.Fragment>
+        return (<React.Fragment key={index}>
                 <table className="table table-hover" style={{width:"100%"}}>
                     <tbody>
                     <tr>
@@ -162,7 +165,8 @@ const Laptops = ({GetLaptopsList, laptops, GetLaptopDetails, ClearLaptopDetails,
 const mapStateToProps = (state) =>{
     return{
         laptops: state.laptop.laptopLists,
-        searchLaptopLists: state.laptop.searchLaptopLists
+        searchLaptopLists: state.laptop.searchLaptopLists,
+        laptopFilterKeys: state.laptop.laptopFilterKeys
     }
 }
 export default connect(mapStateToProps,{GetLaptopsList, GetLaptopDetails, ClearLaptopDetails})(Laptops);

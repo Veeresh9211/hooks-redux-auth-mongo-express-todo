@@ -68,7 +68,6 @@ export const UpdateLaptop =(laptopRecord)=>{
         })
             // socket.emit('updatedLaptop','success');
             // socket.on('updatedLaptopLists',(res)=>{
-            //     debugger
             //     console.log(res)
             //     dispatch({type: 'LAPTOP_UPDATE_SUCCESS', val: response.status});
             // })
@@ -118,6 +117,7 @@ export const LaptopSearchFilter = (key) =>{
 }
 
 export const FilterLaptopResults = (filterL) =>{
+    let filterStore = filterL;
     let keysList= [...new Set(Object.values(filterL))];
     let finalObj = {}
     keysList.forEach((key)=>{
@@ -129,7 +129,7 @@ export const FilterLaptopResults = (filterL) =>{
         dispatch({type: 'START_LOADER', val: true});
         axios.post(`${baseUrl}/laptops/filters`, finalObj)
         .then((response)=>{
-            dispatch({type: "Filter_Laptop_Results", val: response.data});
+            dispatch({type: "Filter_Laptop_Results", val: {res: response.data, filterKeysApplied: filterStore}});
             setTimeout(function(){ dispatch({type: 'END_LOADER', val: true}) }, 500);
         })
         .catch(function (error) {

@@ -14,8 +14,8 @@ const Laptops = mongoose.model('laptop',
     storageType: {type: String}, 
     price: {type:Number},
     processorBrand: {type: String},
-    touchScreen: {type: String}
-    
+    touchScreen: {type: String},
+    image: {type: String}
 });
 
 module.exports = {Laptops}

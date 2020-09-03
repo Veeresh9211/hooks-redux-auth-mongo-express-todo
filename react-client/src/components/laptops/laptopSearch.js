@@ -5,7 +5,7 @@ import AddModal from './addLaptops';
 import {ClearLaptopDetailsAdd, LaptopSearchFilter} from '../../store/actions/laptopAction';
 import {connect} from 'react-redux';
 
-const LaptopSearch = ({ClearLaptopDetailsAdd, LaptopSearchFilter, searchLaptopLists, laptops})=>{
+const LaptopSearch = ({ClearLaptopDetailsAdd, LaptopSearchFilter, searchLaptopLists, laptopFilterKeys})=>{
 
     const [showModal, setShowModal] = useState(false);
     const [showRecords, setshowRecords] = useState(false);
@@ -57,8 +57,9 @@ const LaptopSearch = ({ClearLaptopDetailsAdd, LaptopSearchFilter, searchLaptopLi
                 
             </div>
             <div className="col-sm-8">
+                <span><button className="mainFilterButton" onClick={()=>openFilter()}><i className="fa fa-filter" aria-hidden="true"></i></button></span>
 
-                <button className="mainFilterButton" onClick={()=>openFilter()}><i class="fa fa-filter" aria-hidden="true"></i></button>
+                <span className="badge1">{Object.keys(laptopFilterKeys).length}</span>
             </div>
             <div className="col-sm-1 addLaptops">
                 <button onClick={()=>openAddModal()}><i className="fa fa-plus-circle" aria-hidden="true"></i></button>
@@ -72,7 +73,8 @@ const LaptopSearch = ({ClearLaptopDetailsAdd, LaptopSearchFilter, searchLaptopLi
 const mapStateToProps = (state) =>{
     return{
         laptops: state.laptop.laptopLists,
-        searchLaptopLists: state.laptop.searchLaptopLists
+        searchLaptopLists: state.laptop.searchLaptopLists,
+        laptopFilterKeys: state.laptop.laptopFilterKeys
     }
 }
 

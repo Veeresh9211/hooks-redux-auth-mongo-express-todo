@@ -2,17 +2,32 @@
     // .col-sm-3{
     //     font-size: 14px;
     // }
-    .mainFilterButton
-    {
-        border: solid 1px red;
-        background-color: #ffffff;
-        color: red;
-        padding: 4px 13px;
-        float: right;
+    .col-sm-8{
+        text-align: end;
+        position: relative;
+        .mainFilterButton
+        {
+            border: solid 1px red;
+            background-color: #ffffff;
+            color: red;
+            padding: 4px 13px;
+        }
+        .mainFilterButton:focus {
+            outline: none;
+        }
+        span.badge1 {
+            position: absolute;
+            left: 97%;
+            top: -1px;
+            padding: 2px 7px;
+            background-color: lawngreen;
+            border-radius: 51%;
+            color: brown;
+            font-weight: bold;
+            font-size: 11px;
+        }
     }
-    .mainFilterButton:focus {
-        outline: none;
-    }
+  
     #resultCountMobileOnly{
         display: none;
     }
@@ -59,6 +74,8 @@
             outline: none;
         }
     }
+    
+   
     .moreFilter{
         .css-1jllj6i-control{
             display: none;
@@ -101,6 +118,10 @@
 @media only screen and (max-width: 768px) {
     .laptopSearch {
         flex-wrap: initial !important;
+        span.badge1 {
+            // left: 57%;
+            left: calc(40vw - (/* width */140px / 2)) !important;
+        }
         .moreFilter
          {
             .moreFilterButton {
