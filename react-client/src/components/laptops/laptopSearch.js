@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import ReactMultiSelectCheckboxes from 'react-multiselect-checkboxes';
+import LaptopFilter from './laptopFilters';
 import './laptops.scss';
 import AddModal from './addLaptops';
 import {ClearLaptopDetailsAdd, LaptopSearchFilter} from '../../store/actions/laptopAction';
@@ -24,6 +24,12 @@ const LaptopSearch = ({ClearLaptopDetailsAdd, LaptopSearchFilter, searchLaptopLi
         document.getElementById("searchBox").value = "";
         setshowRecords(false);
     }
+
+    const openFilter = ()=>{
+        let filterWidth = document.getElementById("laptopFilters").offsetWidth === 220 ? "0px" : "220px";
+        document.getElementById("laptopFilters").style.width = filterWidth;
+    }
+
     return(
         <div className="laptopSearch row">
             <div className="col-sm-3 moreFilter">
@@ -39,6 +45,7 @@ const LaptopSearch = ({ClearLaptopDetailsAdd, LaptopSearchFilter, searchLaptopLi
                             <button className="searchButton" >Search</button>
                         </div>
                         <div className="col-sm-3">
+                            
                         </div>
                         <div style={{textAlign: "end", margin: "auto 0"}} className="col-sm-1">
                             <i onClick={()=>resetValues()} data-toggle="collapse" data-target="#collapseExample" className="fa fa-window-close-o" aria-hidden="true"></i>
@@ -50,12 +57,14 @@ const LaptopSearch = ({ClearLaptopDetailsAdd, LaptopSearchFilter, searchLaptopLi
                 
             </div>
             <div className="col-sm-8">
-                
+
+                <button className="mainFilterButton" onClick={()=>openFilter()}><i class="fa fa-filter" aria-hidden="true"></i></button>
             </div>
             <div className="col-sm-1 addLaptops">
                 <button onClick={()=>openAddModal()}><i className="fa fa-plus-circle" aria-hidden="true"></i></button>
             </div>
             <AddModal showHide={showModal} label="Add Laptop" hideShowHandler={openAddModal}/>
+            <LaptopFilter/>
         </div>
     )
 }

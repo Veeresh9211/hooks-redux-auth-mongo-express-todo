@@ -128,6 +128,7 @@ const Laptops = ({GetLaptopsList, laptops, GetLaptopDetails, ClearLaptopDetails,
     let noSearchResults = searchLaptopLists && searchLaptopLists.length === 0 ? "No Laptops Found. Please refine you'r search keyword" : "";
     return(<div className="laptops">
         <DataLoader/>
+        <div id="dekstopOnlySideBar"className="">Coming Soon</div>
         <table id="dekstopTable" className="table table-hover">
             <thead>
                 <tr>

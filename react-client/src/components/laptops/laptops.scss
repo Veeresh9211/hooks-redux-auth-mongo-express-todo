@@ -2,6 +2,17 @@
     // .col-sm-3{
     //     font-size: 14px;
     // }
+    .mainFilterButton
+    {
+        border: solid 1px red;
+        background-color: #ffffff;
+        color: red;
+        padding: 4px 13px;
+        float: right;
+    }
+    .mainFilterButton:focus {
+        outline: none;
+    }
     #resultCountMobileOnly{
         display: none;
     }
@@ -24,9 +35,8 @@
             padding: 4px 27px;
             background-color: #ffffff;
             color: red;
-            margin-left: 2%;
-            box-shadow: 1px 0px 4px 2px lightcoral;
-            border: inherit;
+            border: solid 1px red;
+            float: left;
         }
         button:focus {
             outline: none;
@@ -139,6 +149,10 @@
 
 .laptops{
     margin: 1% 1%;
+    display: flex;
+    #dekstopOnlySideBar{
+        width: 16%;
+    }
     .noResultFoundText {
         text-align: center;
         font-style: italic;
@@ -153,6 +167,7 @@
         opacity: 0.8 !important;
     }
     .table{
+        font-size: 15px;
         border-bottom: solid 1px black;
         .actionIcons{
             display: inline-flex;
@@ -209,6 +224,9 @@
         //     color: red;
         //     font-style: italic;
         // }
+        #dekstopOnlySideBar{
+            display: none;
+        }
         hr{
             background-color: red;
             margin: 3% 0%;

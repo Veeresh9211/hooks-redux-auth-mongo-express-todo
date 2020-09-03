@@ -114,8 +114,27 @@ export const LaptopSearchFilter = (key) =>{
         dispatch({type: 'START_LOADER', val: true});
         dispatch({type: 'LAPTOP_FILTER_SEARCH', val: key});
         setTimeout(function(){ dispatch({type: 'END_LOADER', val: true}) }, 1000);
-        
+    }
+}
 
+export const FilterLaptopResults = (filterL) =>{
+    let keysList= [...new Set(Object.values(filterL))];
+    let finalObj = {}
+    keysList.forEach((key)=>{
+        let valuesList = Object.keys(filterL).filter(key2 => filterL[key2] === key);
+        finalObj = {...finalObj,[key]:valuesList}
+    })
+   
+    return (dispatch) =>{
+        dispatch({type: 'START_LOADER', val: true});
+        axios.post(`${baseUrl}/laptops/filters`, finalObj)
+        .then((response)=>{
+            dispatch({type: "Filter_Laptop_Results", val: response.data});
+            setTimeout(function(){ dispatch({type: 'END_LOADER', val: true}) }, 500);
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
     }
 }
 

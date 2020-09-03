@@ -67,7 +67,18 @@ const AddModal = ({showHide, hideShowHandler, SaveLaptop, UpdateLaptop, laptopUp
                                 <div className="col-md-6">
                                     <div class="form-group">
                                         <label>Brand</label>
-                                        <input type="text" name="brand" value={laptopObject && laptopObject.brand} onChange={(e)=>handleChange(e)} class="form-control" placeholder="Enter Brand" required/>
+                                        <select class="form-control" value={laptopObject && laptopObject.brand} name="brand" onChange={(e)=>handleChange(e)} required>
+                                            <option value="">--Select Brand--</option>
+                                            <option value="Dell">Dell</option>
+                                            <option value="HP">HP</option>
+                                            <option value="Lenovo">Lenovo</option>
+                                            <option value="Asus">Asus</option>
+                                            <option value="Apple">Apple</option>
+                                            <option value="iBall">iBall</option>
+                                            <option value="Zebronics">Zebronics</option>
+                                            <option value="Zenith">Zenith</option>
+                                            
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label>Processor</label>

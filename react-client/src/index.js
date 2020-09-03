@@ -13,11 +13,22 @@ import {createStore, combineReducers, applyMiddleware} from 'redux';
 import rootReducer from './store/reducers/rootreducer';
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
+import { persistStore } from 'redux-persist';
+import { PersistGate } from 'redux-persist/integration/react'
+
+
+// const pReducer = persistReducer(persistConfig, rootReducer);
 const store = createStore(rootReducer,applyMiddleware(thunk));
+// const store = createStore(pReducer,applyMiddleware(thunk));
+const persistor = persistStore(store);
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}><App /></Provider>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <App />
+      </PersistGate>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

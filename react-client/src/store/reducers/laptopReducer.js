@@ -5,7 +5,8 @@ const intitalState={
     laptopUpdateStatus: "",
     laptopDetails: "",
     laptopDeleteStatus: "",
-    laptopFilterResult: ""
+    laptopFilterResult: "",
+    laptopFilterKeys: ""
 }
 
 const LaptopReducer = (state=intitalState, action) =>{
@@ -68,6 +69,13 @@ const LaptopReducer = (state=intitalState, action) =>{
                 searchLaptopLists: finalRes
             }
         break;
+        case 'Filter_Laptop_Results':
+            return{
+                ...state,
+                searchLaptopLists: action.val
+            }
+          
+        break;
         case 'LAPTOP_DETAILS':
             return{
                 ...state,
@@ -75,7 +83,6 @@ const LaptopReducer = (state=intitalState, action) =>{
             }
         break;
         case 'CLEAR_LAPTOP_DETAILS':
-            debugger
             return{
                 ...state,
                 laptopSaveStatus: "",

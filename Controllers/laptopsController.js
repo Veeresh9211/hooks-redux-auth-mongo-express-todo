@@ -75,4 +75,28 @@ routes.delete('/:id',(req,res)=>{
         if(!err) return res.send(docs);
     })
 })
+routes.post('/filters',(req,res)=>{
+   const { brand, processor, ram, processorBrand, storageType } = req.body;
+    let keys = Object.keys(req.body)
+    let cond0 = keys[0] !== undefined ? `$in` : `$ne`
+    let cond1 = keys[1] !== undefined ? `$in` : `$ne`
+    let cond2 = keys[2] !== undefined ? `$in` : `$ne`
+    let cond3 = keys[3] !== undefined ? `$in` : `$ne`
+
+    let body1 = keys[0] !== undefined ? req.body[keys[0]] : ``
+    let body2 = keys[1] !== undefined ? req.body[keys[1]] : ``
+    let body3 = keys[2] !== undefined ? req.body[keys[2]] : ``
+    let body4 = keys[3] !== undefined ? req.body[keys[3]] : ``
+  
+    Laptops.find({
+        [keys[0]]: { [cond0]: body1 },
+        [keys[1]]: { [cond1]: body2 },
+        [keys[2]]: { [cond2]: body3 },
+        [keys[3]]: { [cond3]: body4 },
+    },(err,docs)=>{
+        if (err) return res.status(500).send('Error Deleting Latptop Configurations');
+        if(!err) return res.send(docs);
+    });   
+})
+
 module.exports = routes;
