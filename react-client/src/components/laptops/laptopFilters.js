@@ -107,11 +107,11 @@ const LaptopFilter = ({FilterLaptopResults, laptopFilterKeys})=>{
                     </div>
                     <div id="collapse7" className="panel-collapse collapse in">
                         <div className="panel-body">
-                            <p><input type="checkbox" name="processorGeneration" value="10th Generation" onChange={(e)=>handleChange(e)} checked = {Object.keys(laptopFilterKeys).includes("10th Gen")}/>10th Gen</p>
-                            <p><input type="checkbox" name="processorGeneration" value="9th Generation" onChange={(e)=>handleChange(e)} checked = {Object.keys(laptopFilterKeys).includes("9th Gen")}/>9th Gen</p>
-                            <p><input type="checkbox" name="processorGeneration" value="8th Generation" onChange={(e)=>handleChange(e)} checked = {Object.keys(laptopFilterKeys).includes("8th Gen")}/>8th Gen</p>
-                            <p><input type="checkbox" name="processorGeneration" value="5th Generation" onChange={(e)=>handleChange(e)} checked = {Object.keys(laptopFilterKeys).includes("5th Gen")}/>5th Gen</p>
-                            <p><input type="checkbox" name="processorGeneration" value="4th Generation" onChange={(e)=>handleChange(e)} checked = {Object.keys(laptopFilterKeys).includes("4th Gen")}/>4th Gen</p>
+                            <p><input type="checkbox" name="processorGeneration" value="10th Generation" onChange={(e)=>handleChange(e)} checked = {Object.keys(laptopFilterKeys).includes("10th Generation")}/>10th Gen</p>
+                            <p><input type="checkbox" name="processorGeneration" value="9th Generation" onChange={(e)=>handleChange(e)} checked = {Object.keys(laptopFilterKeys).includes("9th Generation")}/>9th Gen</p>
+                            <p><input type="checkbox" name="processorGeneration" value="8th Generation" onChange={(e)=>handleChange(e)} checked = {Object.keys(laptopFilterKeys).includes("8th Generation")}/>8th Gen</p>
+                            <p><input type="checkbox" name="processorGeneration" value="5th Generation" onChange={(e)=>handleChange(e)} checked = {Object.keys(laptopFilterKeys).includes("5th Generation")}/>5th Gen</p>
+                            <p><input type="checkbox" name="processorGeneration" value="4th Generation" onChange={(e)=>handleChange(e)} checked = {Object.keys(laptopFilterKeys).includes("4th Generation")}/>4th Gen</p>
                         </div>
                     </div>
                 </div>
