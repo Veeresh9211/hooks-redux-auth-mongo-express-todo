@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import {Modal} from 'react-bootstrap';
 import './auth.scss';
 
-export const SignInModal = ({showHide, showHideRef, openSignUpRef}) =>{
+const SignInModal = ({showHide, showHideRef, openSignUpRef, regStatus, regStatusMsg}) =>{
     debugger
     const handleChange =()=>{
 
@@ -14,6 +14,7 @@ export const SignInModal = ({showHide, showHideRef, openSignUpRef}) =>{
           <Modal.Title>Sign In</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+            <p className="regSuccessMsg">{regStatusMsg}</p>
             <form >
                 <div className="form-group">
                     <label>Email</label>
@@ -32,3 +33,4 @@ export const SignInModal = ({showHide, showHideRef, openSignUpRef}) =>{
     )
 }
 
+export default SignInModal;

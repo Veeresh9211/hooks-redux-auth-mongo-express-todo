@@ -1,6 +1,6 @@
 .customNavbar{
     display: flex;
-    background-color: red;
+    background-color: #2F2F2B;
     color: #ffffff;
     .homeLabel{
         flex: 8;
@@ -13,7 +13,7 @@
         margin: auto 0%;
         // padding: 5px 2%;
         padding: 0px 1%;
-        background-color: #ff6461;
+        background-color: #FF7129;
         .customsize{
             font-size: 2.5rem;
             padding: 27% 0%;
@@ -24,7 +24,7 @@
         flex:1;
         padding: 6px 0px 0px 0px;
         font-size: 14px;
-        background-color: #ff6461;
+        background-color: #FF7129;
         text-align: center;
         p{
             margin: 0px 0px;
@@ -34,11 +34,11 @@
             border-top: solid 1px;
             .btn{
                 font-size: 14px;
-                color: #ffffff;
+                color: #FF7129;
             }
         }
         button.signIn {   
-            background-color: red;
+            background-color: #FF7129;
             border: solid 2px;
             color: #ffffff;
             padding: 1px 12px;
@@ -46,7 +46,7 @@
             margin: 3% 6% 0% 0%;
         }
         button.signUp {
-            background-color: red;
+            background-color: #FF7129;
             border: solid 2px;
             color: #ffffff;
             padding: 1px 12px;
@@ -83,7 +83,7 @@
                 margin: 1px 0px;
             }
             button.signIn {
-                background-color: red;
+                background-color: #2F2F2B;
                 border: solid 2px;
                 color: #ffffff;
                 padding: 1px 5px;
@@ -91,7 +91,7 @@
                 margin: 5% 10% 0% 0%;
             }
             button.signUp {
-                background-color: red;
+                background-color: #2F2F2B;
                 border: solid 2px;
                 color: #ffffff;
                 padding: 1px 5px;

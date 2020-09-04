@@ -1,20 +1,27 @@
 import React,{useState} from 'react';
 import {Modal} from 'react-bootstrap';
+import {UserRegistration} from '../../store/actions/authAction';
 import './auth.scss';
+import {connect} from 'react-redux';
 
-export const SignUpModal = ({showHide, showHideRef, openSignInRef}) =>{
+const SignUpModal = ({showHide, showHideRef, openSignInRef, UserRegistration}) =>{
 
-    const handleChange =()=>{
-
+    const [userRecord, setUserRecord] = useState({});
+    const handleChange =(e)=>{
+        setUserRecord({...userRecord,[e.currentTarget.name]:e.currentTarget.value})
     }
 
+    const register = (e)=>{
+        UserRegistration(userRecord);
+        e.preventDefault();
+    }
     return(
         <Modal show={showHide} onHide={()=>showHideRef()} id="signInModal">
         <Modal.Header closeButton>
           <Modal.Title>Sign Up</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <form >
+            <form onSubmit={(e)=>{register(e)}}>
                 <div className="form-group">
                     <label>Name</label>
                     <input type="text" name="firstName" onChange={(event)=>handleChange(event)} className="form-control" placeholder="Name"/>
@@ -39,3 +46,5 @@ export const SignUpModal = ({showHide, showHideRef, openSignInRef}) =>{
     )
 }
 
+
+export default connect(null,{UserRegistration})(SignUpModal)

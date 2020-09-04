@@ -7,9 +7,9 @@
         position: relative;
         .mainFilterButton
         {
-            border: solid 1px red;
-            background-color: #ffffff;
-            color: red;
+            border: solid 1px #FF7129;
+            background-color: #FF7129;
+            color: #ffffff;
             padding: 4px 13px;
         }
         .mainFilterButton:focus {
@@ -27,7 +27,11 @@
             font-size: 11px;
         }
     }
-  
+    .col-sm-1{
+        .fa-window-close-o{
+            color: red;
+        }
+    }
     #resultCountMobileOnly{
         display: none;
     }
@@ -48,9 +52,9 @@
     .addLaptops {
         button{
             padding: 4px 27px;
-            background-color: #ffffff;
-            color: red;
-            border: solid 1px red;
+            background-color: #FF7129;
+            color: #ffffff;
+            border: solid 1px #FF7129;
             float: left;
         }
         button:focus {
@@ -65,8 +69,8 @@
             width: 33rem;
         }
        .searchButton{
-            border: solid 1px red;
-            background-color: red;
+            border: solid 1px #FF7129;
+            background-color: #FF7129;
             color: #ffffff;
             padding: 1% 5%;
        }
@@ -88,9 +92,9 @@
             margin: 2px;
         }
         .moreFilterButton{
-            border: solid 1px red;
-            background-color: #ffffff;
-            color: red;
+            border: solid 2px #ffffff;
+            background-color: #FF7129;
+            color: #ffffff;
             padding: 1% 5%;
         }
         div#collapseExample {
@@ -134,7 +138,7 @@
          div#collapseExample {
             p{
                 position: absolute;
-                background-color: red;
+                background-color: #FF7129;
                 width: 99vw;
                 padding: 1% 16%;
                 margin-top: 0px !important;
@@ -177,7 +181,7 @@
     .noResultFoundText {
         text-align: center;
         font-style: italic;
-        color: red;
+        color: #FF7129;
     }
     #mobileTable{
         display: none;
@@ -202,15 +206,15 @@
         }
     }
     thead {
-        background-color: red;
-        color: #ffffff;
+        background-color: #2F2F2B;
+        color: #FF7129;
     }
     tbody {
-        color: red;
+        color: #2F2F2B;
     }
     .table-hover tbody tr:hover {
         color: #ffffff;
-        background-color:red;
+        background-color:#FF7129;
         opacity: 0.6;
     }
     thead, tbody tr {
@@ -243,14 +247,14 @@
     .laptops {
         // b.noResultFoundText {
         //     margin: 0%;
-        //     color: red;
+        //     color: #FF7129;
         //     font-style: italic;
         // }
         #dekstopOnlySideBar{
             display: none;
         }
         hr{
-            background-color: red;
+            background-color: #FF7129;
             margin: 3% 0%;
             height: 1px;
         }
@@ -294,14 +298,14 @@
         border-radius: 0px;
         border: 0px !important;
         color: #ffffff;
-        background-color: red;
+        background-color: #FF7129;
         border-radius: 0px;
         font-size: 14px !important;
         .col-md-3{
             text-align: center;
-            background-color: bisque;
+            background-color: #2F2F2B;
             padding: 3%;
-            color: red;
+            color: #FF7129;
             .buttonsModal{
                 display: grid;
                 position: absolute;
@@ -311,15 +315,15 @@
                     margin: 1% 0px;
                 }
                 button.btn.btn-secondary {
-                    background-color: inherit;
-                    color: red;
+                    background-color: #FF7129;
+                    color: #ffffff;
                     border: solid 1px;
                     border-radius: 0px;
                 }
                 button.btn.btn-primary {
-                    background-color: purple;
+                    background-color: #2F2F2B;
                     border-radius: 0px;
-                    border: none;
+                    border: solid 1px #ffffff;
                 }
                 button:focus {
                     box-shadow: none;
@@ -331,7 +335,7 @@
             .errorMessage{
                 background-color: #ffffff;
                 text-align: center;
-                color: red;
+                color: #FF7129;
                 font-weight: bold;
             }
             label{
@@ -373,7 +377,7 @@
                     background-color: bisque;
                     padding: 5%;
                     text-align: center;
-                    color: red;
+                    color: #FF7129;
                 }
             }
             .col-md-3 .buttonsModal {
@@ -400,7 +404,7 @@
         color: #ffffff;
     }
     .laptopBrandName {
-        background-color: red;
+        background-color: #FF7129;
         padding: 5%;
     }
     .moreDetails{
@@ -418,7 +422,7 @@
             }
             p{
                 font-size: 15px;
-                color: red;
+                color: #FF7129;
             }
         }
     }

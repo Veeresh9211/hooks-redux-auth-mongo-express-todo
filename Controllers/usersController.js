@@ -31,7 +31,7 @@ routes.post('/register', async (req,res)=>{
     newUser.save().then((res1,err)=>{
             if (err) return res.status(500).send(err);
             if(!err) return res.status(200).json({
-                msg: "Successfully Registerd",
+                msg: "Successfully Registered. Please Sign In!!",
                 user: res1
             });
     })

@@ -1,10 +1,11 @@
 import React,{useState, useEffect} from 'react';
 import './navbar.scss';
 import 'font-awesome/css/font-awesome.min.css';
-import {SignInModal} from '../Auth/signInModal';
-import {SignUpModal} from '../Auth/signUpModal';
+import SignInModal from '../Auth/signInModal';
+import SignUpModal from '../Auth/signUpModal';
+import {connect} from 'react-redux';
 
-const NavBar=()=>{
+const NavBar=({registrationStatus, registrationStatusMessage})=>{
 
     const [showSignIn, setshowSignIn] = useState(false);
     const [showSignUp, setshowSignUp] = useState(false);
@@ -25,6 +26,12 @@ const NavBar=()=>{
       }
 
     }
+
+    useEffect(()=>{
+      if(registrationStatus === true){
+        openSignInModal(true);
+      }
+    },[registrationStatus])
 
     return(
       <div className="customNavbar">
@@ -51,11 +58,17 @@ const NavBar=()=>{
         </div>
         }
 
-        <SignInModal showHide={showSignIn} showHideRef={openSignInModal} openSignUpRef={openSignUpModal}/>
+        <SignInModal showHide={showSignIn} showHideRef={openSignInModal} openSignUpRef={openSignUpModal} regStatus={registrationStatus} regStatusMsg={registrationStatusMessage}/>
         <SignUpModal showHide={showSignUp} showHideRef={openSignUpModal} openSignInRef={openSignInModal}/>
       </div>
        
     )
 }
+const mapStateToProps =(state)=>{
+  return{
+      registrationStatus: state.authR.registrationStatus,
+      registrationStatusMessage: state.authR.registrationStatusMessage
+  }
+}
 
-export default NavBar;
+export default connect(mapStateToProps)(NavBar);

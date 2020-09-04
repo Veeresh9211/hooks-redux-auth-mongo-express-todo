@@ -3,24 +3,44 @@ div#signInModal {
     .modal-content{
         border-radius: 6px !important;
         .modal-header{
-            background-color: bisque;
-            color: red;
+            background-color: #2F2F2B;
+            color: #ffffff;
             padding: 3% 4% !important;
+            border-bottom: none;
             .close{
                 opacity: 1;
                 line-height: 1;
-                color: red;
+                color: #ffffff;
             }
             button.close:focus {
                 outline: none;
             }
         }
         .modal-body{
+            .regSuccessMsg{
+                text-align: center;
+                margin: 0px;
+                padding: 0% 0%;
+                background-color: #2F2F2B;
+                color: red;
+            }
             form{
                 button.btn {
-                    background-color: #ffffff;
+                    background-color: #2F2F2B;
                     border-radius: 0px;
-                    color: red;
+                    color: #ffffff;
+                }
+                .text-center{
+                    a{
+                        color: #2F2F2B;
+                        font-weight: bold;
+                    }
+                }
+                .text-right{
+                    a{
+                        color: #2F2F2B;
+                        font-weight: bold;
+                    }
                 }
             }
         }
