@@ -49,6 +49,10 @@
     }
    
     .panel-group{
+        .countFilterInd{
+            font-size: 12px;
+            color: purple;
+        }
         cursor: pointer;
         .panel-heading:hover{
             background-color:lightgrey;

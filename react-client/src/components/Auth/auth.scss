@@ -1,0 +1,36 @@
+div#signInModal {
+    width: 24%;
+    .modal-content{
+        border-radius: 6px !important;
+        .modal-header{
+            background-color: bisque;
+            color: red;
+            padding: 3% 4% !important;
+            .close{
+                opacity: 1;
+                line-height: 1;
+                color: red;
+            }
+            button.close:focus {
+                outline: none;
+            }
+        }
+        .modal-body{
+            form{
+                button.btn {
+                    background-color: #ffffff;
+                    border-radius: 0px;
+                    color: red;
+                }
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    div#signInModal {
+        width: 100%;
+        padding: 18% 7%;
+    }
+}

@@ -22,12 +22,12 @@
     
     .nameActions{
         flex:1;
-        padding: 6px 6px 0px 6px;
+        padding: 6px 0px 0px 0px;
         font-size: 14px;
         background-color: #ff6461;
         text-align: center;
         p{
-            margin: 0px;
+            margin: 0px 0px;
             font-weight: bold;
         }
         .buttons{
@@ -36,6 +36,24 @@
                 font-size: 14px;
                 color: #ffffff;
             }
+        }
+        button.signIn {   
+            background-color: red;
+            border: solid 2px;
+            color: #ffffff;
+            padding: 1px 12px;
+            font-size: 12px;
+            margin: 3% 6% 0% 0%;
+        }
+        button.signUp {
+            background-color: red;
+            border: solid 2px;
+            color: #ffffff;
+            padding: 1px 12px;
+            font-size: 12px;
+        }
+        button:focus {
+            outline: none;
         }
         button.btn:focus {
             box-shadow: none;
@@ -47,15 +65,40 @@
 @media only screen and (max-width: 768px) {
     .customNavbar{
         .homeIcon {
-            padding: 5px 2%;
+            padding: 8px 2%;
             .customsize{
                 font-size: 2rem;
-                padding: 65% 0%;
+                // padding: 0%;
             }
         }
         .homeLabel{
             h5{
-                margin: 11% 16%;
+                // margin: 11% 16%;
+            }
+        }
+        .nameActions{
+            flex:8;
+            padding: 6px 0px 0px 0px;
+            p{
+                margin: 1px 0px;
+            }
+            button.signIn {
+                background-color: red;
+                border: solid 2px;
+                color: #ffffff;
+                padding: 1px 5px;
+                font-size: 12px;
+                margin: 5% 10% 0% 0%;
+            }
+            button.signUp {
+                background-color: red;
+                border: solid 2px;
+                color: #ffffff;
+                padding: 1px 5px;
+                font-size: 12px;
+            }
+            button:focus {
+                outline: none;
             }
         }
     }    

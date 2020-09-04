@@ -23,12 +23,12 @@ const LaptopFilter = ({FilterLaptopResults, laptopFilterKeys})=>{
 
     useEffect(()=>{
         if(filterObject !== null){
+            
             FilterLaptopResults(filterObject);
         }
     },[filterObject])
 
     useEffect(()=>{ // for retaining state on page refresh
-        debugger
         setFilterObject({...laptopFilterKeys});
         FilterLaptopResults(laptopFilterKeys);
     },[])
@@ -50,7 +50,7 @@ const LaptopFilter = ({FilterLaptopResults, laptopFilterKeys})=>{
                 <div className="panel-group" id="accordion">
                     <div data-toggle="collapse" href="#collapse1" className="panel-heading">
                         <h6 className="panel-title">
-                        <a  data-parent="#accordion" >Brand</a>
+    <a  data-parent="#accordion" >Brand {filterObject && Object.values(filterObject).filter((type)=> type == 'brand').length > 0 && <span className="countFilterInd">({Object.values(filterObject).filter((type)=> type == 'brand').length})</span>}</a>
                         </h6>
                     </div>
                     <div id="collapse1" className="panel-collapse collapse in">
@@ -71,7 +71,7 @@ const LaptopFilter = ({FilterLaptopResults, laptopFilterKeys})=>{
                 <div className="panel-group" id="accordion">
                     <div data-toggle="collapse" href="#collapse2" className="panel-heading">
                         <h6 className="panel-title">
-                        <a data-parent="#accordion">Processor</a>
+                        <a data-parent="#accordion">Processor {filterObject && Object.values(filterObject).filter((type)=> type == 'processor').length > 0 && <span className="countFilterInd">({Object.values(filterObject).filter((type)=> type == 'processor').length})</span>}</a>
                         </h6>
                     </div>
                     <div id="collapse2" className="panel-collapse collapse in">
@@ -88,7 +88,7 @@ const LaptopFilter = ({FilterLaptopResults, laptopFilterKeys})=>{
                 <div  className="panel-group" id="accordion">
                     <div data-toggle="collapse" href="#collapse3"className="panel-heading">
                         <h6 className="panel-title">
-                        <a data-parent="#accordion" >Processor Brand</a>
+                        <a data-parent="#accordion" >Processor Brand {filterObject && Object.values(filterObject).filter((type)=> type == 'processorBrand').length > 0 && <span className="countFilterInd">({Object.values(filterObject).filter((type)=> type == 'processorBrand').length})</span>}</a>
                         </h6>
                     </div>
                     <div id="collapse3" className="panel-collapse collapse in">
@@ -102,7 +102,7 @@ const LaptopFilter = ({FilterLaptopResults, laptopFilterKeys})=>{
                 <div  className="panel-group" id="accordion">
                     <div data-toggle="collapse" href="#collapse7"className="panel-heading">
                         <h6 className="panel-title">
-                        <a data-parent="#accordion" >Processor Generation</a>
+                        <a data-parent="#accordion" >Processor Generation {filterObject && Object.values(filterObject).filter((type)=> type == 'processorGeneration').length > 0 && <span className="countFilterInd">({Object.values(filterObject).filter((type)=> type == 'processorGeneration').length})</span>}</a>
                         </h6>
                     </div>
                     <div id="collapse7" className="panel-collapse collapse in">
@@ -120,7 +120,7 @@ const LaptopFilter = ({FilterLaptopResults, laptopFilterKeys})=>{
                 <div  className="panel-group" id="accordion">
                     <div data-toggle="collapse" href="#collapse8" className="panel-heading">
                         <h6 className="panel-title">
-                        <a data-parent="#accordion" >Operating System</a>
+                        <a data-parent="#accordion" >Operating System {filterObject && Object.values(filterObject).filter((type)=> type == 'operatingSystem').length > 0 && <span className="countFilterInd">({Object.values(filterObject).filter((type)=> type == 'operatingSystem').length})</span>}</a>
                         </h6>
                     </div>
                     <div id="collapse8" className="panel-collapse collapse in">
@@ -134,7 +134,7 @@ const LaptopFilter = ({FilterLaptopResults, laptopFilterKeys})=>{
                 <div  className="panel-group" id="accordion">
                     <div data-toggle="collapse" href="#collapse9" className="panel-heading">
                         <h6 className="panel-title">
-                        <a data-parent="#accordion" >Hard Disk</a>
+                        <a data-parent="#accordion" >Hard Disk {filterObject && Object.values(filterObject).filter((type)=> type == 'hardDisk').length > 0 && <span className="countFilterInd">({Object.values(filterObject).filter((type)=> type == 'hardDisk').length})</span>}</a>
                         </h6>
                     </div>
                     <div id="collapse9" className="panel-collapse collapse in">
@@ -148,7 +148,7 @@ const LaptopFilter = ({FilterLaptopResults, laptopFilterKeys})=>{
                 <div  className="panel-group" id="accordion">
                     <div data-toggle="collapse" href="#collapse4" className="panel-heading">
                         <h6 className="panel-title">
-                        <a data-parent="#accordion">Ram</a>
+                        <a data-parent="#accordion">Ram {filterObject && Object.values(filterObject).filter((type)=> type == 'ram').length > 0 && <span className="countFilterInd">({Object.values(filterObject).filter((type)=> type == 'ram').length})</span>}</a>
                         </h6>
                     </div>
                     <div id="collapse4" className="panel-collapse collapse in">
@@ -163,7 +163,7 @@ const LaptopFilter = ({FilterLaptopResults, laptopFilterKeys})=>{
                 <div className="panel-group" id="accordion">
                     <div data-toggle="collapse" href="#collapse6" className="panel-heading">
                         <h6 className="panel-title">
-                        <a data-parent="#accordion">Storage Type</a>
+                        <a data-parent="#accordion">Storage Type {filterObject && Object.values(filterObject).filter((type)=> type == 'storageType').length > 0 && <span className="countFilterInd">({Object.values(filterObject).filter((type)=> type == 'storageType').length})</span>}</a>
                         </h6>
                     </div>
                     <div id="collapse6" className="panel-collapse collapse in">
