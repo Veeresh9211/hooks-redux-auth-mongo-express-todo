@@ -67,13 +67,14 @@
             }
            
         }
-        .collapsed:after {
+        
+        .panel-heading:after{
             content: '\002b';
             flex: 0.1;
             margin-top: -3px;
         }
-        .panel-heading:after{
-            content: '\002b';
+        .panel-heading[aria-expanded="true"]::after {
+            content: '\2212';
             flex: 0.1;
             margin-top: -3px;
         }
