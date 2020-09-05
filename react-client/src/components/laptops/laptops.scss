@@ -7,9 +7,9 @@
         position: relative;
         .mainFilterButton
         {
-            border: solid 1px #FF7129;
-            background-color: #FF7129;
-            color: #ffffff;
+            border: solid 1px #FEA981;
+            background-color: #FEA981;
+            color: #5C0E2F;
             padding: 4px 13px;
         }
         .mainFilterButton:focus {
@@ -52,9 +52,9 @@
     .addLaptops {
         button{
             padding: 4px 27px;
-            background-color: #FF7129;
-            color: #ffffff;
-            border: solid 1px #FF7129;
+            background-color: #FEA981;
+            color: #5C0E2F;
+            border: solid 1px #FEA981;
             float: left;
         }
         button:focus {
@@ -69,8 +69,8 @@
             width: 33rem;
         }
        .searchButton{
-            border: solid 1px #FF7129;
-            background-color: #FF7129;
+            border: solid 1px #FEA981;
+            background-color: #FEA981;
             color: #ffffff;
             padding: 1% 5%;
        }
@@ -92,8 +92,8 @@
             margin: 2px;
         }
         .moreFilterButton{
-            border: solid 2px #ffffff;
-            background-color: #FF7129;
+            border: solid 2px #FEA981;
+            background-color: #FEA981;
             color: #ffffff;
             padding: 1% 5%;
         }
@@ -138,7 +138,7 @@
          div#collapseExample {
             p{
                 position: absolute;
-                background-color: #FF7129;
+                background-color: #FEA981;
                 width: 99vw;
                 padding: 1% 16%;
                 margin-top: 0px !important;
@@ -181,7 +181,7 @@
     .noResultFoundText {
         text-align: center;
         font-style: italic;
-        color: #FF7129;
+        color: #5C0E2F;
     }
     #mobileTable{
         display: none;
@@ -206,8 +206,8 @@
         }
     }
     thead {
-        background-color: #2F2F2B;
-        color: #FF7129;
+        background-color: #5C0E2F;
+        color: #ffffff;
     }
     tbody {
         color: #2F2F2B;
@@ -298,14 +298,14 @@
         border-radius: 0px;
         border: 0px !important;
         color: #ffffff;
-        background-color: #FF7129;
+        background-color: #FEA981;
         border-radius: 0px;
         font-size: 14px !important;
         .col-md-3{
             text-align: center;
-            background-color: #2F2F2B;
+            background-color: #5C0E2F;
             padding: 3%;
-            color: #FF7129;
+            color: #FEA981;
             .buttonsModal{
                 display: grid;
                 position: absolute;
@@ -315,13 +315,13 @@
                     margin: 1% 0px;
                 }
                 button.btn.btn-secondary {
-                    background-color: #FF7129;
+                    background-color: #FEA981;
                     color: #ffffff;
                     border: solid 1px;
                     border-radius: 0px;
                 }
                 button.btn.btn-primary {
-                    background-color: #2F2F2B;
+                    background-color: #5C0E2F;
                     border-radius: 0px;
                     border: solid 1px #ffffff;
                 }
@@ -335,7 +335,7 @@
             .errorMessage{
                 background-color: #ffffff;
                 text-align: center;
-                color: #FF7129;
+                color: #5C0E2F;
                 font-weight: bold;
             }
             label{
@@ -374,10 +374,10 @@
             }
             .col-md-9{
                 h4{
-                    background-color: bisque;
+                    background-color: #5C0E2F;
                     padding: 5%;
                     text-align: center;
-                    color: #FF7129;
+                    color: #FEA981;
                 }
             }
             .col-md-3 .buttonsModal {
@@ -393,7 +393,7 @@
 
 .latopDetails{
     .closeDetails{
-        background-color: purple;
+        background-color: #5C0E2F;
         border-radius: 0px;
         color: #ffffff;
         width: 10%;
@@ -404,11 +404,11 @@
         color: #ffffff;
     }
     .laptopBrandName {
-        background-color: #FF7129;
+        background-color: #5C0E2F;
         padding: 5%;
     }
     .moreDetails{
-        background-color: bisque;
+        background-color: FEA981;
         padding: 3% 6%;
         display: flex;
         flex-wrap: wrap;
@@ -416,13 +416,13 @@
         .oneItem{
             width: 16rem;
             label{
-                color: rebeccapurple;
+                color: #5C0E2F;
                 font-size: 12px;
                 margin: 0px !important;
             }
             p{
                 font-size: 15px;
-                color: #FF7129;
+                color: #ffffff;
             }
         }
     }

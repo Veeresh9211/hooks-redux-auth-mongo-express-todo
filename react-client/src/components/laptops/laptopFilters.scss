@@ -29,7 +29,7 @@
         h5{
             padding: 4% 0% 0% 0%;
             text-align: center;
-            color: red;
+            color: #5C0E2F;
             flex: 1;
         }
         .filterClose{
@@ -51,7 +51,7 @@
     .panel-group{
         .countFilterInd{
             font-size: 12px;
-            color: purple;
+            color: #FEA981;
         }
         cursor: pointer;
         .panel-heading:hover{
@@ -72,25 +72,27 @@
             content: '\002b';
             flex: 0.1;
             margin-top: -3px;
+            color: lawngreen;
         }
         .panel-heading[aria-expanded="true"]::after {
             content: '\2212';
             flex: 0.1;
+            color: red;
             margin-top: -3px;
         }
         a{
-            color: red;
+            color: #5C0E2F;
         }
         a:hover {
             text-decoration: none;
-            color: red;
+            color: #FEA981;
         }
         .panel-body{
             font-size: 12px;
             padding: 2% 0% 4% 4%;
             p{
                 margin-bottom: 1%;
-                color: red;
+                color: #5C0E2F;
                 letter-spacing: 1px;
                 input[type="checkbox"] {
                     margin-right: 3%;

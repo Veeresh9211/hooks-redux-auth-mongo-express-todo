@@ -3,7 +3,7 @@ div#signInModal {
     .modal-content{
         border-radius: 6px !important;
         .modal-header{
-            background-color: #2F2F2B;
+            background-color: #5C0E2F;
             color: #ffffff;
             padding: 3% 4% !important;
             border-bottom: none;
@@ -21,24 +21,25 @@ div#signInModal {
                 text-align: center;
                 margin: 0px;
                 padding: 0% 0%;
-                background-color: #2F2F2B;
-                color: red;
+                // background-color: #5C0E2F;
+                color: #5C0E2F;
+                font-weight: bold;
             }
             form{
                 button.btn {
-                    background-color: #2F2F2B;
+                    background-color: #5C0E2F;
                     border-radius: 0px;
                     color: #ffffff;
                 }
                 .text-center{
                     a{
-                        color: #2F2F2B;
+                        color: #5C0E2F;
                         font-weight: bold;
                     }
                 }
                 .text-right{
                     a{
-                        color: #2F2F2B;
+                        color: #5C0E2F;
                         font-weight: bold;
                     }
                 }
