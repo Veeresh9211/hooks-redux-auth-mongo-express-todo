@@ -6,15 +6,15 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 const laptopPersistConfig = {
-    key: 'filterKey',
+    key: 'laptopFilterDetails',
     storage: storage,
     whitelist: ['laptopFilterKeys']
   };
 
   const authPersistConfig = {
-    key: 'authToken',
+    key: 'userDetails',
     storage: storage,
-    whitelist: ['authToken']
+    whitelist: ['authToken','loginStatus','userName']
   };
   
   const rootReducer = combineReducers({

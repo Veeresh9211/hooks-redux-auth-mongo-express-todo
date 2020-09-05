@@ -17,6 +17,12 @@ div#signInModal {
             }
         }
         .modal-body{
+            .errorMessage{
+                background-color: #ffffff;
+                text-align: center;
+                color: red;
+                font-weight: bold;
+            }
             .regSuccessMsg{
                 text-align: center;
                 margin: 0px;
@@ -53,5 +59,41 @@ div#signInModal {
     div#signInModal {
         width: 100%;
         padding: 18% 7%;
+    }
+}
+
+
+#loginSuccessModal{
+    width: 33%;
+    top: 6rem;
+    .modal-header {
+        .modal-title{
+            font-size: 1rem;
+        }
+        padding: 2%;
+        background-color: #5C0E2F;
+        border-radius: 0px;
+        border-bottom: 0px;
+        button.close {
+            color: white;
+            opacity: 1;
+        }
+        button.close:focus {
+            outline: none;
+        }
+    }
+    .modal-body{
+        p{
+            // font-weight: bold;
+            font-size: 14px;
+            text-align: center;
+        } 
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #loginSuccessModal{
+        width: 100%;
+        padding: 10%
     }
 }

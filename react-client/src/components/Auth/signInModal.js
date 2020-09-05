@@ -1,10 +1,20 @@
 import React,{useState} from 'react';
 import {Modal} from 'react-bootstrap';
+import {UserLogin} from '../../store/actions/authAction';
+import {connect} from 'react-redux';
 import './auth.scss';
 
-const SignInModal = ({showHide, showHideRef, openSignUpRef, regStatus, regStatusMsg}) =>{
-    const handleChange =()=>{
+const SignInModal = ({showHide, showHideRef, openSignUpRef, regStatus, regStatusMsg, UserLogin}) =>{
 
+    const [userRecord, setUserRecord] = useState(null);
+    
+    const handleChange =(e)=>{
+        setUserRecord({...userRecord,[e.currentTarget.name]:e.currentTarget.value});
+    }
+
+    const login =(e)=>{
+        UserLogin(userRecord);
+        e.preventDefault();
     }
 
     return(
@@ -13,8 +23,8 @@ const SignInModal = ({showHide, showHideRef, openSignUpRef, regStatus, regStatus
           <Modal.Title>Sign In</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <p className="regSuccessMsg">{regStatusMsg}</p>
-            <form >
+            {regStatus && <p className="regSuccessMsg">{regStatusMsg}</p>}
+            <form onSubmit={(e)=>login(e)}>
                 <div className="form-group">
                     <label>Email</label>
                     <input type="text" name="email" onChange={(e)=>handleChange(e)} className="form-control" placeholder="Email"/>
@@ -32,4 +42,4 @@ const SignInModal = ({showHide, showHideRef, openSignUpRef, regStatus, regStatus
     )
 }
 
-export default SignInModal;
+export default connect(null,{UserLogin})(SignInModal);

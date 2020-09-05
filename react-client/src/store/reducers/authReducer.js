@@ -1,7 +1,10 @@
 const initialState = {
     registrationStatus: false,
     registrationStatusMessage: "",
-    authToken: ""
+    authToken: "",
+    loginStatus: false,
+    loginStatusMessage: "",
+    userName: ""
 }
 
 const AuthReducer =(state=initialState, action) =>{
@@ -13,11 +16,45 @@ const AuthReducer =(state=initialState, action) =>{
                 registrationStatusMessage: action.val
             }
         break;
-        case 'REGISTRATION_FAILURE':
+        case 'REGISTRATION_ERROR':
             return{
                 ...state,
                 registrationStatus: false,
-                
+                registrationStatusMessage: action.val
+
+            }
+        break;
+        case 'CLEAR_REGISTRATION_VALUES':
+            return{
+                ...state,
+                registrationStatus: false,
+                registrationStatusMessage: action.val
+
+            }
+        break;
+        case 'LOGIN_SUCCESS':
+            return{
+                ...state,
+                loginStatus: true,
+                authToken: action.val.token,
+                userName: action.val.userName
+            }
+        break;
+        case 'LOGIN_ERROR':
+            return{
+                ...state,
+                loginStatus: false,
+                authToken: "",
+                userName: ""
+
+            }
+        break;
+        case 'CLEAR_LOGIN__VALUES':
+            return{
+                ...state,
+                loginStatus: false,
+                authToken: "",
+                userName: ""
 
             }
         break;
