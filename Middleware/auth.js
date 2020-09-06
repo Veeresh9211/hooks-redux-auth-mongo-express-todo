@@ -6,7 +6,7 @@ const auth = (req,res,next) =>{
 
     jwt.verify(token,process.env.JWT_TOKEN, (err, verifiedJwt) => {
         if(err){
-          res.status(401).json({msg: "Invalid Token.Please sign in again!!"});
+          res.status(401).json({msg: "Session Expired.Please sign in again!!"});
         }else{
           req.user_id = verifiedJwt.id;
           next();

@@ -10,14 +10,14 @@ let {User} = require('../Models/user');
 routes.post('/register', async (req,res)=>{
     const {email, password, confirmPassword, firstName} = req.body;
 
-    if(!email || !password || !confirmPassword || !firstName) return res.status(400).json({msg:"Enter all fields"});
+    if(!email || !password || !confirmPassword || !firstName) return res.status(400).json({msg:"Fill in all the fields!!"});
 
-    if(password.length < 7) return res.status(400).json({msg: "Password must be minimum 7 characters"});
+    if(password.length < 7) return res.status(400).json({msg: "Password must be minimum 7 characters!!"});
 
-    if(password !== confirmPassword) return res.status(400).json({msg: "Password and Confirm Password don't match"});
+    if(password !== confirmPassword) return res.status(400).json({msg: "Password and Confirm Password don't match!!"});
 
     const existingUser = await User.findOne({email: email})
-    if(existingUser) return res.status(400).json({msg: "An account with this email already exists."});
+    if(existingUser) return res.status(400).json({msg: "An account with this email already exists!!"});
 
     const salt = await bcrypt.genSalt(10);
     const passwordhash = await bcrypt.hash(password, salt);
@@ -54,13 +54,14 @@ routes.post('/login', async (req, res) => {
     
     if(!passwordSame) return res.status(400).json({msg: "Invalid credentials"});
     
-    const token = jwt.sign({id: user._id}, process.env.JWT_TOKEN, { expiresIn: '6000s' });
+    const token = jwt.sign({id: user._id}, process.env.JWT_TOKEN, { expiresIn: '1800s' });
 
     res.status(200).json({
         token: token,
         user:{
             id: user._id,
-            email: user.email
+            email: user.email,
+            firstName: user.firstName
         }
     })
     
