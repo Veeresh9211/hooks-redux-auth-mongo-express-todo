@@ -25,12 +25,12 @@ const SignUpModal = ({showHide, showHideRef, openSignInRef, UserRegistration, re
         {!regStatus && <p className="errorMessage">{regStatusMsg}</p>}
             <form onSubmit={(e)=>{register(e)}}>
                 <div className="form-group">
-                    <label>Name</label>
-                    <input type="text" name="firstName" onChange={(event)=>handleChange(event)} className="form-control" placeholder="Name"/>
-                </div>
-                <div className="form-group">
                     <label>Email</label>
                     <input type="email" name="email" onChange={(event)=>handleChange(event)} className="form-control" placeholder="Email"/>
+                </div>
+                <div className="form-group">
+                    <label>User Name</label>
+                    <input type="text" name="firstName" onChange={(event)=>handleChange(event)} className="form-control" placeholder="User Name"/>
                 </div>
                 <div className="form-group">
                     <label>Password</label>

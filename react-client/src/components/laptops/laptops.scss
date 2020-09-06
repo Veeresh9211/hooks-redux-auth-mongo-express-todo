@@ -473,6 +473,56 @@ div#deleteLaptopModal {
         top: 17%;
     }
 }
+
+#logOutModal{
+    width: 24%;
+    .modal-header {
+        padding: 2%;
+        background-color: red;
+        border-radius: 0px;
+        border: none;
+        .modal-title{
+            font-size: 15px;
+        }
+        button.close {
+            color: #ffffff;
+            opacity: 1 !important;
+            text-shadow: none;
+        }
+    }
+    .modal-body {
+        font-size: 15px;
+        text-align: center;
+        padding: 2% 0%;
+        p{
+            margin: auto 0;
+        }
+    }
+    .modal-footer{
+        padding: 1% 0%;
+        .cancel{
+            color: #ffffff;
+            background-color: inherit;
+            border: solid 1px;
+        }
+        .confirm{
+            color: #ffffff;
+            background-color: red;
+            border: solid 1px;
+        }
+    }
+    button.close:focus {
+       outline: none;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #logOutModal {
+        width: 100%;
+        top: 17%;
+        padding: 10%;
+    }
+}
 .toast.show {
     position: fixed;
     top: calc(33vh - (/* height */100px / 2));

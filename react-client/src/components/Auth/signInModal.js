@@ -4,8 +4,7 @@ import {UserLogin} from '../../store/actions/authAction';
 import {connect} from 'react-redux';
 import './auth.scss';
 
-const SignInModal = ({showHide, showHideRef, openSignUpRef, regStatus, regStatusMsg, UserLogin}) =>{
-
+const SignInModal = ({showHide, showHideRef, openSignUpRef, regStatus, regStatusMsg, UserLogin, sessionExpiredMessage, loginStatusErrorMessage}) =>{
     const [userRecord, setUserRecord] = useState(null);
     
     const handleChange =(e)=>{
@@ -24,6 +23,8 @@ const SignInModal = ({showHide, showHideRef, openSignUpRef, regStatus, regStatus
         </Modal.Header>
         <Modal.Body>
             {regStatus && <p className="regSuccessMsg">{regStatusMsg}</p>}
+            <p className="regSuccessMsg">{sessionExpiredMessage}</p>
+            <p className="errorMessage">{loginStatusErrorMessage}</p>
             <form onSubmit={(e)=>login(e)}>
                 <div className="form-group">
                     <label>Email</label>
