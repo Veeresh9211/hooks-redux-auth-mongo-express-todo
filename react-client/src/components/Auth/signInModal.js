@@ -12,7 +12,7 @@ const SignInModal = ({showHide, showHideRef, openSignUpRef, regStatus, regStatus
     }
 
     const login =(e)=>{
-        UserLogin(userRecord);
+        UserLogin({...userRecord, email: userRecord.email.toLocaleLowerCase()});
         e.preventDefault();
     }
 
