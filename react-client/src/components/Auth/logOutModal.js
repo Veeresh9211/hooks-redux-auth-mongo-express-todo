@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {UserLogout} from '../../store/actions/authAction';
 import './auth.scss';
 
-const LogOutModal = ({showHide, showHideRef, UserLogout}) =>{
+const LogOutModal = ({showHide, showHideRef, UserLogout, userName}) =>{
 
     const Logout = (e)=>{
         UserLogout();
@@ -14,7 +14,7 @@ const LogOutModal = ({showHide, showHideRef, UserLogout}) =>{
     return(
         <Modal show={showHide} onHide={()=>showHideRef()} id="logOutModal">
         <Modal.Header closeButton>
-          <Modal.Title>Hey, Veeresh</Modal.Title>
+          <Modal.Title>Hey, {userName}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
             <p>

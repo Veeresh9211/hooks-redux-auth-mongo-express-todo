@@ -3,17 +3,18 @@ import LaptopReducer from './laptopReducer';
 import NotificationReducer from './notificationReducer';
 import AuthReducer from './authReducer';
 import { persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+// import storage from 'redux-persist/lib/storage';
+import storageSession from 'redux-persist/lib/storage/session'
 
 const laptopPersistConfig = {
     key: 'laptopFilterDetails',
-    storage: storage,
+    storage: storageSession,
     whitelist: ['laptopFilterKeys']
   };
 
   const authPersistConfig = {
     key: 'userDetails',
-    storage: storage,
+    storage: storageSession,
     whitelist: ['authToken','loginStatus','userName']
   };
   

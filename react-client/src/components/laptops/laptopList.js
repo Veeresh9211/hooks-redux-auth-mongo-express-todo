@@ -6,12 +6,19 @@ import ViewLaptopDetails from './viewLaptopDetails';
 import AddModal from './addLaptops';
 import DeleteLaptopModal from './deleteLaptop';
 import DataLoader from '../dataLoadeNotification/dataLoader';
+import PleaseLoginModal from '../Auth/pleaseLoginModal';
 
-const Laptops = ({GetLaptopsList, laptops, GetLaptopDetails, ClearLaptopDetails, searchLaptopLists, laptopFilterKeys})=>{
+const Laptops = ({GetLaptopsList, laptops, GetLaptopDetails, ClearLaptopDetails, searchLaptopLists, laptopFilterKeys, loginStatus})=>{
 
     const [showModal, setShowModal] = useState(false);
     const [showEditModal, setShowEditModal] = useState(false);
     const [showDeleteModal, setShowDeleteModal] = useState(false);
+    const [showPleaseLoginModal, setshowPleaseLoginModal] = useState(false);
+    
+    const openPleaseLoginModal = () =>{
+        setshowPleaseLoginModal(!showPleaseLoginModal);
+    }
+
     const openViewModal = (id) =>{
         if(showModal === false){
             GetLaptopDetails(id);
@@ -59,11 +66,13 @@ const Laptops = ({GetLaptopsList, laptops, GetLaptopDetails, ClearLaptopDetails,
                                 <p>View</p>
                             </div>
                             <div style={{color: "purple"}} className="pencil">
-                                <i className="fa fa-pencil" aria-hidden="true" onClick={()=>openEditModal(val._id)}></i>
+                                {loginStatus && <i className="fa fa-pencil" aria-hidden="true" onClick={()=>openEditModal(val._id)}></i>}
+                                {!loginStatus && <i className="fa fa-pencil" aria-hidden="true" onClick={()=>openPleaseLoginModal()}></i>}
                                 <p>Edit</p>
                             </div>
                             <div style={{color: "red"}} className="trash">
-                                <i className="fa fa-trash-o" aria-hidden="true" onClick={()=>openDeleteModal(val._id)}></i>
+                                {loginStatus && <i className="fa fa-trash-o" aria-hidden="true" onClick={()=>openDeleteModal(val._id)}></i>}
+                                {!loginStatus && <i className="fa fa-trash-o" aria-hidden="true" onClick={()=>openPleaseLoginModal()}></i>}
                                 <p>Delete</p>
                             </div>
                         </div>                            
@@ -114,10 +123,12 @@ const Laptops = ({GetLaptopsList, laptops, GetLaptopDetails, ClearLaptopDetails,
                                 <i style={{color: "green"}} className="fa fa-bars" aria-hidden="true" onClick={()=>openViewModal(val._id)}></i>
                             </div>
                             <div className="pencil">
-                                <i style={{color: "purple"}} className="fa fa-pencil" aria-hidden="true" onClick={()=>openEditModal(val._id)}></i>
+                                {loginStatus && <i style={{color: "purple"}} className="fa fa-pencil" aria-hidden="true" onClick={()=>openEditModal(val._id)}></i>}
+                                {!loginStatus && <i style={{color: "purple"}} className="fa fa-pencil" aria-hidden="true" onClick={()=>openPleaseLoginModal()}></i>}
                             </div>
                             <div className="trash">
-                                <i style={{color: "red"}} className="fa fa-trash-o" aria-hidden="true" onClick={()=>openDeleteModal(val._id)}></i>
+                                {loginStatus && <i style={{color: "red"}} className="fa fa-trash-o" aria-hidden="true" onClick={()=>openDeleteModal(val._id)}></i>}
+                                {!loginStatus && <i style={{color: "red"}} className="fa fa-trash-o" aria-hidden="true" onClick={()=>openPleaseLoginModal()}></i>}
                             </div>
                             </div>
                         </td>
@@ -154,6 +165,8 @@ const Laptops = ({GetLaptopsList, laptops, GetLaptopDetails, ClearLaptopDetails,
         <ViewLaptopDetails showHide={showModal} hideShowHandler={openViewModal}/>
         <AddModal showHide={showEditModal} label="Edit Laptop Configurations" hideShowHandler={openEditModal}/>
         <DeleteLaptopModal showHide={showDeleteModal} label="Delete Laptop Configurations" hideShowHandler={openDeleteModal}/>
+        <PleaseLoginModal showHide={showPleaseLoginModal} label="Add Laptop" hideShowHandler={openPleaseLoginModal}/>
+
 
         <div id="mobileTable">
             {laptopsMobileRow}
@@ -166,7 +179,9 @@ const mapStateToProps = (state) =>{
     return{
         laptops: state.laptop.laptopLists,
         searchLaptopLists: state.laptop.searchLaptopLists,
-        laptopFilterKeys: state.laptop.laptopFilterKeys
+        laptopFilterKeys: state.laptop.laptopFilterKeys,
+        loginStatus: state.authR.loginStatus
+
     }
 }
 export default connect(mapStateToProps,{GetLaptopsList, GetLaptopDetails, ClearLaptopDetails})(Laptops);

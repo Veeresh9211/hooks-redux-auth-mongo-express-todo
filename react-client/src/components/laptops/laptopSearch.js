@@ -2,17 +2,23 @@ import React, {useState, useEffect} from 'react';
 import LaptopFilter from './laptopFilters';
 import './laptops.scss';
 import AddModal from './addLaptops';
+import PleaseLoginModal from '../Auth/pleaseLoginModal';
 import {ClearLaptopDetailsAdd, LaptopSearchFilter} from '../../store/actions/laptopAction';
 import {connect} from 'react-redux';
 
-const LaptopSearch = ({ClearLaptopDetailsAdd, LaptopSearchFilter, searchLaptopLists, laptopFilterKeys})=>{
+const LaptopSearch = ({ClearLaptopDetailsAdd, LaptopSearchFilter, searchLaptopLists, laptopFilterKeys, loginStatus})=>{
 
     const [showModal, setShowModal] = useState(false);
     const [showRecords, setshowRecords] = useState(false);
+    const [showPleaseLoginModal, setshowPleaseLoginModal] = useState(false);
     
     const openAddModal = () =>{
         ClearLaptopDetailsAdd();
         setShowModal(!showModal);
+    }
+
+    const openPleaseLoginModal = () =>{
+        setshowPleaseLoginModal(!showPleaseLoginModal);
     }
 
     const searchLaptopResults = (e)=>{
@@ -62,9 +68,12 @@ const LaptopSearch = ({ClearLaptopDetailsAdd, LaptopSearchFilter, searchLaptopLi
                 <span className="badge1">{Object.keys(laptopFilterKeys).length}</span>
             </div>
             <div className="col-sm-1 addLaptops">
-                <button onClick={()=>openAddModal()}><i className="fa fa-plus-circle" aria-hidden="true"></i></button>
+                {loginStatus && <button onClick={()=>openAddModal()}><i className="fa fa-plus-circle" aria-hidden="true"></i></button>}
+                {!loginStatus && <button onClick={()=>openPleaseLoginModal()}><i className="fa fa-plus-circle" aria-hidden="true"></i></button>}
             </div>
             <AddModal showHide={showModal} label="Add Laptop" hideShowHandler={openAddModal}/>
+            <PleaseLoginModal showHide={showPleaseLoginModal} label="Add Laptop" hideShowHandler={openPleaseLoginModal}/>
+            
             <LaptopFilter/>
         </div>
     )
@@ -74,7 +83,9 @@ const mapStateToProps = (state) =>{
     return{
         laptops: state.laptop.laptopLists,
         searchLaptopLists: state.laptop.searchLaptopLists,
-        laptopFilterKeys: state.laptop.laptopFilterKeys
+        laptopFilterKeys: state.laptop.laptopFilterKeys,
+        loginStatus: state.authR.loginStatus
+
     }
 }
 
