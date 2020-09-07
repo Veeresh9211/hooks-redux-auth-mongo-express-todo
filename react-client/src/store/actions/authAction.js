@@ -17,6 +17,7 @@ export const UserRegistration =(userRecord)=>{
 }
 
 export const UserLogin =(userRecord)=>{
+    debugger
     return (dispatch)=>{
         dispatch({type: 'START_LOADER', val: true});
         axios.post(`${baseUrl}/users/login`, userRecord)

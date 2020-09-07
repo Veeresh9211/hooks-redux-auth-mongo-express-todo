@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 
 const SignUpModal = ({showHide, showHideRef, openSignInRef, UserRegistration, regStatus, regStatusMsg, ClearRegistrationValues}) =>{
 
-    const [userRecord, setUserRecord] = useState({});
+    const [userRecord, setUserRecord] = useState(null);
 
     const handleChange =(e)=>{
         ClearRegistrationValues();
@@ -14,7 +14,7 @@ const SignUpModal = ({showHide, showHideRef, openSignInRef, UserRegistration, re
     }
 
     const register = (e)=>{
-        UserRegistration({...userRecord, email: userRecord.email.toLocaleLowerCase()});
+        UserRegistration({...userRecord, email: userRecord !== null && userRecord.email.toLocaleLowerCase()});
         e.preventDefault();
     }
     return(

@@ -1,10 +1,10 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import {Modal} from 'react-bootstrap';
 import {UserLogin} from '../../store/actions/authAction';
 import {connect} from 'react-redux';
 import './auth.scss';
 
-const SignInModal = ({showHide, showHideRef, openSignUpRef, regStatus, regStatusMsg, UserLogin, sessionExpiredMessage, loginStatusErrorMessage}) =>{
+const SignInModal = ({showHide, showHideRef, openSignUpRef, regStatus, regStatusMsg, UserLogin, sessionExpiredMessage, loginStatusErrorMessage, loginStatus}) =>{
     const [userRecord, setUserRecord] = useState(null);
     
     const handleChange =(e)=>{
@@ -12,10 +12,15 @@ const SignInModal = ({showHide, showHideRef, openSignUpRef, regStatus, regStatus
     }
 
     const login =(e)=>{
-        UserLogin({...userRecord, email: userRecord.email.toLocaleLowerCase()});
+        UserLogin({...userRecord, email: userRecord !== null && userRecord.email.toLocaleLowerCase()});
         e.preventDefault();
     }
 
+    useEffect(()=>{
+        if(loginStatus === true){
+            setUserRecord(null);
+        }
+    },[loginStatus])
     return(
         <Modal show={showHide} onHide={()=>showHideRef()} id="signInModal">
         <Modal.Header closeButton>

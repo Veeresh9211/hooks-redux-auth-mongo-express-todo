@@ -95,7 +95,7 @@ const NavBar=({registrationStatus, registrationStatusMessage, sessionExpired, se
         </div>
         }
 
-        <SignInModal loginStatusErrorMessage={loginStatusErrorMessage} sessionExpiredMessage={sessionExpiredMessage} showHide={showSignIn} showHideRef={openSignInModal} openSignUpRef={openSignUpModal} regStatus={registrationStatus} regStatusMsg={registrationStatusMessage}/>
+        <SignInModal loginStatusErrorMessage={loginStatusErrorMessage} sessionExpiredMessage={sessionExpiredMessage} showHide={showSignIn} showHideRef={openSignInModal} openSignUpRef={openSignUpModal} regStatus={registrationStatus} regStatusMsg={registrationStatusMessage} loginStatus={loginStatus}/>
         <SignUpModal showHide={showSignUp} showHideRef={openSignUpModal} openSignInRef={openSignInModal} regStatus={registrationStatus} regStatusMsg={registrationStatusMessage}/>
         <LoginSuccessModal showHide={showLoginSucess} showHideRef={closeLoginSuccessModal} userName={userName}/>
         <LogOutModal showHide={showLogOut}  showHideRef={openLogOutModal}  userName={userName}/>
